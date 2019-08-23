@@ -7,7 +7,8 @@
 //
 
 enum WeatherFetchingError: Int, Error {
+    case invalidParameter = 400
     case unAuthorized = 401
     case notFound = 404
-    case unknown
+    case dataConversion
 }

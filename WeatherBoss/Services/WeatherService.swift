@@ -8,6 +8,7 @@
 
 import Alamofire
 import ObjectMapper
+import RxSwift
 
 final class WeatherService {
     
@@ -24,11 +25,14 @@ final class WeatherService {
     }
     
     
-    func getCurrentWeather(forCities cities: [String: String]) -> () {
-        self.manager.request(
-            Constant.serverPath,
-            method: HTTPMethod.get,
-            parameters: buildQueryParams(fromCities: cities))
+    func getCurrentWeather(forCities cities: [String: String]) -> Observable<[CityWeather]> {
+        
+        return Observable.create { [weak self] observer -> Disposable in
+            self?.manager.request(
+                Constant.serverPath,
+                method: HTTPMethod.get,
+                parameters: self?.buildQueryParams(fromCities: cities) ?? [:]
+            )
             .validate()
             .responseJSON { response in
                 switch response.result {
@@ -37,23 +41,28 @@ final class WeatherService {
                     //to get JSON return value
                     guard let responseJSON = response.result.value as? [String: AnyObject],
                         let weatherListJSONArray = responseJSON["list"] as? Array<[String: AnyObject]> else {
-                            // TODO:
-                        return
+                            observer.onError(WeatherFetchingError.dataConversion)
+                            return
                     }
                     
                     let weatherList: [CityWeather] = Mapper<CityWeatherData>()
                         .mapArray(JSONArray: weatherListJSONArray)
                         .map(CityWeatherMapping().mapToDomain)
                         .compactMap{ $0 }
-                    print(weatherList)
-                   
                     
-                case .failure(_):
-                    if let statusCode = response.response?.statusCode {
-                        // TODO:
+                    observer.onNext(weatherList)
+                    
+                case .failure(let error):
+                    if let statusCode = response.response?.statusCode,
+                        let expectedServerError = WeatherFetchingError(rawValue: statusCode) {
+                        observer.onError(expectedServerError)
+                    } else {
+                        observer.onError(error)
                     }
                 }
             }
+            return Disposables.create()
+        }
     }
     
     // MARK: - Private Helpers
