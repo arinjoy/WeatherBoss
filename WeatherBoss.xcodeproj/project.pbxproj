@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FE226A87230F494600DA538E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE226A86230F494600DA538E /* AppDelegate.swift */; };
-		FE226A89230F494600DA538E /* CityWeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE226A88230F494600DA538E /* CityWeatherListViewController.swift */; };
+		FE226A89230F494600DA538E /* WeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE226A88230F494600DA538E /* WeatherListViewController.swift */; };
 		FE226A8B230F494600DA538E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE226A8A230F494600DA538E /* SettingsViewController.swift */; };
 		FE226A8E230F494600DA538E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE226A8C230F494600DA538E /* Main.storyboard */; };
 		FE226A90230F494700DA538E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE226A8F230F494700DA538E /* Assets.xcassets */; };
@@ -17,6 +17,7 @@
 		FE226AA0230F4F7400DA538E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE226A9C230F4F7400DA538E /* Alamofire.framework */; };
 		FE226AA1230F4F7400DA538E /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE226A9D230F4F7400DA538E /* ObjectMapper.framework */; };
 		FE226AA2230F4F7400DA538E /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE226A9E230F4F7400DA538E /* SnapKit.framework */; };
+		FE3879A82310B11A00EEBA6F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3879A72310B11A00EEBA6F /* Theme.swift */; };
 		FE53B2B3230FB3DE00224258 /* CityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2B2230FB3DE00224258 /* CityList.swift */; };
 		FE53B2B7230FB73C00224258 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2B6230FB73C00224258 /* WeatherService.swift */; };
 		FE53B2BC230FCB6F00224258 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE53B2AE230FB1A000224258 /* RxSwift.framework */; };
@@ -30,7 +31,7 @@
 /* Begin PBXFileReference section */
 		FE226A83230F494600DA538E /* WeatherBoss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherBoss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE226A86230F494600DA538E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FE226A88230F494600DA538E /* CityWeatherListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherListViewController.swift; sourceTree = "<group>"; };
+		FE226A88230F494600DA538E /* WeatherListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListViewController.swift; sourceTree = "<group>"; };
 		FE226A8A230F494600DA538E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FE226A8D230F494600DA538E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE226A8F230F494700DA538E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,6 +41,7 @@
 		FE226A9C230F4F7400DA538E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FE226A9D230F4F7400DA538E /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		FE226A9E230F4F7400DA538E /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		FE3879A72310B11A00EEBA6F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FE53B2AE230FB1A000224258 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		FE53B2B2230FB3DE00224258 /* CityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityList.swift; sourceTree = "<group>"; };
 		FE53B2B6230FB73C00224258 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
@@ -112,7 +114,7 @@
 		FE53B2A7230FAFF900224258 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FE226A88230F494600DA538E /* CityWeatherListViewController.swift */,
+				FE226A88230F494600DA538E /* WeatherListViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				FE53B2B2230FB3DE00224258 /* CityList.swift */,
+				FE3879A72310B11A00EEBA6F /* Theme.swift */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -329,12 +332,13 @@
 				FE226A8B230F494600DA538E /* SettingsViewController.swift in Sources */,
 				FE53B2C9230FF1F700224258 /* CityWeatherMapping.swift in Sources */,
 				FE226A87230F494600DA538E /* AppDelegate.swift in Sources */,
+				FE3879A82310B11A00EEBA6F /* Theme.swift in Sources */,
 				FE53B2B3230FB3DE00224258 /* CityList.swift in Sources */,
 				FE53B2CC230FFA7700224258 /* WeatherFetchingError.swift in Sources */,
 				FE53B2BF230FE65300224258 /* CityWeatherData.swift in Sources */,
 				FE53B2B7230FB73C00224258 /* WeatherService.swift in Sources */,
 				FE53B2C4230FEF6A00224258 /* DomainMapping.swift in Sources */,
-				FE226A89230F494600DA538E /* CityWeatherListViewController.swift in Sources */,
+				FE226A89230F494600DA538E /* WeatherListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  CityWeatherListViewController.swift
+//  WeatherListViewController.swift
 //  WeatherBoss
 //
 //  Created by BISWAS, Arinjoy on 23/8/19.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import RxSwift
 
-final class CityWeatherListViewController: UIViewController {
+final class WeatherListViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
 
