@@ -1,0 +1,4 @@
+github "tristanhimmelman/AlamofireObjectMapper" ~> 5.2
+github "SnapKit/SnapKit" ~> 5.0.0
+github "ReactiveX/RxSwift" ~> 5.0
+
