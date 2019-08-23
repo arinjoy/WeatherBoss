@@ -1,5 +1,5 @@
 //
-//  APIServiceClient.swift
+//  WeatherService.swift
 //  WeatherBoss
 //
 //  Created by BISWAS, Arinjoy on 23/8/19.
@@ -17,10 +17,15 @@ final class WeatherService {
         static let weatherUnit: String = "metric"
     }
     
+    private var manager: SessionManager
     
-    func getWeatherForcast(forCities cities: [String: String]) -> () {
-        
-        Alamofire.request(
+    init() {
+        self.manager = Alamofire.SessionManager.default
+    }
+    
+    
+    func getCurrentWeather(forCities cities: [String: String]) -> () {
+        self.manager.request(
             Constant.serverPath,
             method: HTTPMethod.get,
             parameters: buildQueryParams(fromCities: cities))
@@ -36,10 +41,11 @@ final class WeatherService {
                         return
                     }
                     
-                    let weathers: [CityWeather] = Mapper<CityWeatherData>()
+                    let weatherList: [CityWeather] = Mapper<CityWeatherData>()
                         .mapArray(JSONArray: weatherListJSONArray)
                         .map(CityWeatherMapping().mapToDomain)
                         .compactMap{ $0 }
+                    print(weatherList)
                    
                     
                 case .failure(_):
