@@ -5,6 +5,39 @@
 	<key>logFormatVersion</key>
 	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>5E95A423-ABA8-43A8-A9E3-F3586220DEFF</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>5E95A423-ABA8-43A8-A9E3-F3586220DEFF.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>WeatherBoss project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>WeatherBoss</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug WeatherBoss</string>
+			<key>timeStartedRecording</key>
+			<real>588204686.53154302</real>
+			<key>timeStoppedRecording</key>
+			<real>588206722.14920998</real>
+			<key>title</key>
+			<string>Debug WeatherBoss</string>
+			<key>uniqueIdentifier</key>
+			<string>5E95A423-ABA8-43A8-A9E3-F3586220DEFF</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  CityWeatherListViewController.swift
 //  WeatherBoss
 //
 //  Created by BISWAS, Arinjoy on 23/8/19.
@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SnapKit
 
-class FirstViewController: UIViewController {
+final class CityWeatherListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

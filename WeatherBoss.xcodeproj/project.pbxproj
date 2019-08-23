@@ -8,22 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		FE226A87230F494600DA538E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE226A86230F494600DA538E /* AppDelegate.swift */; };
-		FE226A89230F494600DA538E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE226A88230F494600DA538E /* FirstViewController.swift */; };
-		FE226A8B230F494600DA538E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE226A8A230F494600DA538E /* SecondViewController.swift */; };
+		FE226A89230F494600DA538E /* CityWeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE226A88230F494600DA538E /* CityWeatherListViewController.swift */; };
+		FE226A8B230F494600DA538E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE226A8A230F494600DA538E /* SettingsViewController.swift */; };
 		FE226A8E230F494600DA538E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE226A8C230F494600DA538E /* Main.storyboard */; };
 		FE226A90230F494700DA538E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE226A8F230F494700DA538E /* Assets.xcassets */; };
 		FE226A93230F494700DA538E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE226A91230F494700DA538E /* LaunchScreen.storyboard */; };
+		FE226A9F230F4F7400DA538E /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE226A9B230F4F7400DA538E /* AlamofireObjectMapper.framework */; };
+		FE226AA0230F4F7400DA538E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE226A9C230F4F7400DA538E /* Alamofire.framework */; };
+		FE226AA1230F4F7400DA538E /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE226A9D230F4F7400DA538E /* ObjectMapper.framework */; };
+		FE226AA2230F4F7400DA538E /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE226A9E230F4F7400DA538E /* SnapKit.framework */; };
+		FE53B2AF230FB1A000224258 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE53B2AE230FB1A000224258 /* RxSwift.framework */; };
+		FE53B2B3230FB3DE00224258 /* CityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2B2230FB3DE00224258 /* CityList.swift */; };
+		FE53B2B7230FB73C00224258 /* AppServerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2B6230FB73C00224258 /* AppServerClient.swift */; };
+		FE53B2BB230FBA0800224258 /* CityWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2BA230FBA0800224258 /* CityWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FE226A83230F494600DA538E /* WeatherBoss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherBoss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE226A86230F494600DA538E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FE226A88230F494600DA538E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		FE226A8A230F494600DA538E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		FE226A88230F494600DA538E /* CityWeatherListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherListViewController.swift; sourceTree = "<group>"; };
+		FE226A8A230F494600DA538E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FE226A8D230F494600DA538E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE226A8F230F494700DA538E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE226A92230F494700DA538E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE226A94230F494700DA538E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE226A9B230F4F7400DA538E /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
+		FE226A9C230F4F7400DA538E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		FE226A9D230F4F7400DA538E /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		FE226A9E230F4F7400DA538E /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		FE53B2AE230FB1A000224258 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		FE53B2B2230FB3DE00224258 /* CityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityList.swift; sourceTree = "<group>"; };
+		FE53B2B6230FB73C00224258 /* AppServerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServerClient.swift; sourceTree = "<group>"; };
+		FE53B2BA230FBA0800224258 /* CityWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +47,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE53B2AF230FB1A000224258 /* RxSwift.framework in Frameworks */,
+				FE226A9F230F4F7400DA538E /* AlamofireObjectMapper.framework in Frameworks */,
+				FE226AA0230F4F7400DA538E /* Alamofire.framework in Frameworks */,
+				FE226AA1230F4F7400DA538E /* ObjectMapper.framework in Frameworks */,
+				FE226AA2230F4F7400DA538E /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +63,7 @@
 			children = (
 				FE226A85230F494600DA538E /* WeatherBoss */,
 				FE226A84230F494600DA538E /* Products */,
+				FE226A9A230F4F7400DA538E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +78,110 @@
 		FE226A85230F494600DA538E /* WeatherBoss */ = {
 			isa = PBXGroup;
 			children = (
-				FE226A86230F494600DA538E /* AppDelegate.swift */,
-				FE226A88230F494600DA538E /* FirstViewController.swift */,
-				FE226A8A230F494600DA538E /* SecondViewController.swift */,
+				FE53B2B8230FB9E700224258 /* Models */,
+				FE53B2B4230FB6F000224258 /* Services */,
+				FE53B2B0230FB34C00224258 /* Configs */,
+				FE53B2A9230FB05500224258 /* Scenes */,
 				FE226A8C230F494600DA538E /* Main.storyboard */,
 				FE226A8F230F494700DA538E /* Assets.xcassets */,
 				FE226A91230F494700DA538E /* LaunchScreen.storyboard */,
 				FE226A94230F494700DA538E /* Info.plist */,
 			);
 			path = WeatherBoss;
+			sourceTree = "<group>";
+		};
+		FE226A9A230F4F7400DA538E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE53B2AE230FB1A000224258 /* RxSwift.framework */,
+				FE226A9C230F4F7400DA538E /* Alamofire.framework */,
+				FE226A9B230F4F7400DA538E /* AlamofireObjectMapper.framework */,
+				FE226A9D230F4F7400DA538E /* ObjectMapper.framework */,
+				FE226A9E230F4F7400DA538E /* SnapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE53B2A7230FAFF900224258 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FE226A88230F494600DA538E /* CityWeatherListViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FE53B2A9230FB05500224258 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FE53B2AD230FB12100224258 /* Settings */,
+				FE53B2AC230FB0BD00224258 /* CityWeatherDetails */,
+				FE53B2AB230FB08900224258 /* CityWeatherList */,
+				FE53B2AA230FB06800224258 /* Root */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FE53B2AA230FB06800224258 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				FE226A86230F494600DA538E /* AppDelegate.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		FE53B2AB230FB08900224258 /* CityWeatherList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CityWeatherList;
+			sourceTree = "<group>";
+		};
+		FE53B2AC230FB0BD00224258 /* CityWeatherDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FE53B2A7230FAFF900224258 /* Views */,
+			);
+			path = CityWeatherDetails;
+			sourceTree = "<group>";
+		};
+		FE53B2AD230FB12100224258 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FE226A8A230F494600DA538E /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FE53B2B0230FB34C00224258 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				FE53B2B2230FB3DE00224258 /* CityList.swift */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		FE53B2B4230FB6F000224258 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FE53B2B6230FB73C00224258 /* AppServerClient.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FE53B2B8230FB9E700224258 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FE53B2B9230FB9F300224258 /* CityWeather */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FE53B2B9230FB9F300224258 /* CityWeather */ = {
+			isa = PBXGroup;
+			children = (
+				FE53B2BA230FBA0800224258 /* CityWeather.swift */,
+			);
+			path = CityWeather;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +255,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE226A8B230F494600DA538E /* SecondViewController.swift in Sources */,
+				FE226A8B230F494600DA538E /* SettingsViewController.swift in Sources */,
 				FE226A87230F494600DA538E /* AppDelegate.swift in Sources */,
-				FE226A89230F494600DA538E /* FirstViewController.swift in Sources */,
+				FE53B2B3230FB3DE00224258 /* CityList.swift in Sources */,
+				FE53B2BB230FBA0800224258 /* CityWeather.swift in Sources */,
+				FE53B2B7230FB73C00224258 /* AppServerClient.swift in Sources */,
+				FE226A89230F494600DA538E /* CityWeatherListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +406,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WeatherBoss/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -294,6 +420,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = arin.appy.tappy.WeatherBoss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -303,7 +430,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WeatherBoss/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -311,6 +444,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = arin.appy.tappy.WeatherBoss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

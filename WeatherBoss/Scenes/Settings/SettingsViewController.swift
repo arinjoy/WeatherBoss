@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  SettingsViewController.swift
 //  WeatherBoss
 //
 //  Created by BISWAS, Arinjoy on 23/8/19.
@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SnapKit
 
-class SecondViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
