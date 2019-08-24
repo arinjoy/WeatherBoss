@@ -53,6 +53,11 @@ final class WeatherListViewController: UIViewController {
         tableView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         self.view.addSubview(tableView)
         
+        tableView.register(WeatherSummaryCell.self, forCellReuseIdentifier: "WeatherSummaryCell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 60
+        tableView.separatorStyle = .none
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -112,11 +117,13 @@ extension WeatherListViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // TODO: use custom cells
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CityWeatherSumaryCell")
+        let cell = WeatherSummaryCell(style: .default, reuseIdentifier: "WeatherSummaryCell")
         
         if let item = dataSource.item(atIndexPath: indexPath) {
-            cell.textLabel?.text = item.cityName
-            cell.detailTextLabel?.text = item.currentTemperature
+//            cell.textLabel?.text = item.cityName
+//            cell.detailTextLabel?.text = item.currentTemperature
+            
+            cell.configure(withPresentationItem: item)
         }
         return cell
     }

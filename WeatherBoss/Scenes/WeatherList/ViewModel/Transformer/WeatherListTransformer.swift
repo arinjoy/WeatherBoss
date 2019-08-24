@@ -6,16 +6,29 @@
 //  Copyright © 2019 ArinAppy. All rights reserved.
 //
 
+import Foundation
+
 struct WeatherListTransformer: DataTransforming {
     
+    /// Number formatter helper
+    private let formatter: NumberFormatter?
+    
+    init() {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 1
+        self.formatter = formatter
+    }
+    
     func transform(input: [CityWeather]) -> WeatherListDataSource {
-        
-        // TODO: apply logic here for degree symbol and number formatter up to two digits
-        
-        let presentationItems = input.map { item  in
-            WeatherSummaryPresentationItem(
+        let presentationItems: [WeatherSummaryPresentationItem] = input.map { item  in
+            
+            var temrperatureString = formatter?.string(from: NSNumber(value: item.temperature)) ?? ""
+            temrperatureString += " °C" // TODO: Can be defined in constant
+            
+            return WeatherSummaryPresentationItem(
                 cityName: item.cityName,
-                currentTemperature: "\(item.temperature)" + " degee Celcius")
+                currentTemperature: temrperatureString)
         }
         
         let dataSections = [DataSection<WeatherSummaryPresentationItem>(items: presentationItems)]

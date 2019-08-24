@@ -38,11 +38,11 @@ final class WeatherService {
                 switch response.result {
                 case .success:
                     
-                    //to get JSON return value
                     guard let responseJSON = response.result.value as? [String: AnyObject],
-                        let weatherListJSONArray = responseJSON["list"] as? Array<[String: AnyObject]> else {
-                            observer.onError(WeatherFetchingError.dataConversion)
-                            return
+                        let weatherListJSONArray = responseJSON["list"] as? Array<[String: AnyObject]>
+                    else {
+                        observer.onError(WeatherFetchingError.dataConversion)
+                        return
                     }
                     
                     let weatherList: [CityWeather] = Mapper<CityWeatherData>()
