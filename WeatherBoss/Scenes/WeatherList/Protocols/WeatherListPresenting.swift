@@ -8,10 +8,11 @@
 
 import Foundation
 
-protocol WeatherListPresenting {
+protocol WeatherListPresenting: class {
+    
+    /// Called when view did become ready
+    func viewDidBecomeReady()
     
     /// Will load current weather status for a list of given cities
-    ///
-    /// - Parameter cities: The list of identifier of the cities
-    func loadCurrentWeather(forCities cities: [String])
+    func loadCurrentWeatherOfCities()
 }

@@ -1,17 +1,15 @@
 //
-//  CityList.swift
+//  Constant.swift
 //  WeatherBoss
 //
 //  Created by BISWAS, Arinjoy on 23/8/19.
 //  Copyright © 2019 ArinAppy. All rights reserved.
 //
 
-import Foundation
-
-struct CityList {
+struct Constant {
     
     /// The list of supported capital cities in Australia
-    static let items: [String: String] = [
+    static let CityList: [String: String] = [
         "2147714": "Sydney",
         "7839805": "Melbourne",
         "2078025": "Adelaide",
