@@ -13,11 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var weatherListTabNavigationController: UINavigationController?
-    var settingsTabNavigationControlller: UINavigationController?
+    private var weatherListTabNavigationController: UINavigationController?
+    private var settingsTabNavigationControlller: UINavigationController?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
