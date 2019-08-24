@@ -9,6 +9,18 @@
 import UIKit
 import RxSwift
 
+protocol WeatherListPresenting: class {
+    
+    /// Called when view did become ready
+    func viewDidBecomeReady()
+    
+    /// Will load current weather status for a list of given cities
+    func loadCurrentWeatherOfCities()
+    
+    /// Called when user taps an item form the weather list
+    func didTapCityWeather(at index: Int)
+}
+
 final class WeatherListPresenter: WeatherListPresenting {
     
     /// The front-facing view that conforms to the `WeatherListDisplay` protocol

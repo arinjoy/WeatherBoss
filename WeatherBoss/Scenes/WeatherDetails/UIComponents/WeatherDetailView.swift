@@ -55,6 +55,13 @@ final class WeatherDetailView: UIView {
         return label
     }()
     
+    private let shortDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .darkGray
+        label.textAlignment = .right
+        return label
+    }()
+    
     // MARK: - Lifecycle
     
     override init(frame: CGRect) {
@@ -91,8 +98,13 @@ final class WeatherDetailView: UIView {
 
 extension WeatherDetailView {
     
-    func configure(withPresentationItem item: WeatherSummaryPresentationItem) {
+    func configure(withPresentationItem item: WeatherDetailsPresentationItem) {
         cityLabel.text = item.cityName
         mainTemperatureLabel.text = item.currentTemperature
+        minTemperatureLabel.text = item.minTemperature
+        maxTemperatureLabel.text = item.maxTemperature
+        windSpeedLabel.text = item.windSpeed
+        humidityLabel.text = item.humidity
+        shortDescriptionLabel.text = item.description
     }
 }

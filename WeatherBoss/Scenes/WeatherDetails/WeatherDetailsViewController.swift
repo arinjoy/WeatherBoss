@@ -16,6 +16,8 @@ final class WeatherDetailsViewController: UIViewController {
     /// The scene model data to being passed along from previous context
     private var sceneModel: CityWeather
     
+    private let presenter: WeatherDetailsPresenter = WeatherDetailsPresenter()
+    
     /// The UI holding view for details
     private var detailsView: WeatherDetailView!
     
@@ -32,11 +34,21 @@ final class WeatherDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .white
-        title = sceneModel.cityName
+
+        presenter.display = self
+        presenter.sceneModel = sceneModel
         
+        buildUIAndApplyConstraints()
+        
+        presenter.viewDidBecomeReady()
+    }
+    
+    // MARK: - Private Helpers
+    
+    private func buildUIAndApplyConstraints() {
         detailsView = WeatherDetailView()
         view.addSubview(detailsView)
         
@@ -45,11 +57,19 @@ final class WeatherDetailsViewController: UIViewController {
             make.leading.equalTo(view.snp.leading).offset(20)
             make.trailing.equalTo(view.snp.trailing).offset(-20)
         }
-        
-        let presentationItem = WeatherSummaryPresentationItem(cityName: sceneModel.cityName, currentTemperature: "25 degree")
-        
-        detailsView.configure(withPresentationItem: presentationItem)
-        
+    }
+}
+
+// MARK: - WeatherDetailsDisplay
+
+extension WeatherDetailsViewController: WeatherDetailsDisplay {
+    
+    func setTitle(_ title: String) {
+        self.title = title
+    }
+    
+    func setViewDetails(withPresenetationItem item: WeatherDetailsPresentationItem) {
+        detailsView.configure(withPresentationItem: item)
     }
 }
 

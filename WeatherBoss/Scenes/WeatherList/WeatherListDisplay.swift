@@ -12,7 +12,7 @@ typealias WeatherListDataSource = DataSource<DataSection<WeatherSummaryPresentat
 
 protocol WeatherListDisplay: class {
     
-    /// Will load the view title in navigation bar
+    /// Will set the view title in navigation bar
     ///
     /// - Parameter title: The title to set
     func setTitle(_ title: String)
