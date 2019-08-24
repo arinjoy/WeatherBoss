@@ -31,19 +31,25 @@ final class WeatherListPresenter: WeatherListPresenting {
     func viewDidBecomeReady() {
         
         // TODO: Load from String keys / localized file
-        display?.setTitle("Current Weather")
+        display?.setTitle("Weather")
     }
     
     func loadCurrentWeatherOfCities() {
         
+        display?.showLoadingIndicator()
+        
         service.getCurrentWeather(forCities: Constant.CityList)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] result in
-                
+                self?.display?.hideLoadingIndicator()
                 self?.handleUpdatingDataSource(result)
-            }, onError: { error in
-                print(error)
-                // TODO: handle error state on UI
+            }, onError: { [weak self] error in
+                self?.display?.hideLoadingIndicator()
+                
+                // TODO: Detect error code and customise accordingly
+                self?.display?.showError(
+                    title: "Oops. Something wrong",
+                    message: "There are some technical difficulties. Please try again.")
             })
             .disposed(by: disposeBag)
     }

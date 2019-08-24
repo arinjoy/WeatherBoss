@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 final class WeatherListViewController: UIViewController {
     
@@ -58,6 +59,24 @@ extension WeatherListViewController: WeatherListDisplay {
     func setWeatherListDataSource(_ dataSource: WeatherListDataSource) {
         self.dataSource = dataSource
         tableView.reloadData()
+    }
+    
+    func showLoadingIndicator() {
+        HUD.show(HUDContentType.progress)
+    }
+    
+    func hideLoadingIndicator() {
+        HUD.hide(afterDelay: 0.25)
+    }
+    
+    func showError(title: String, message: String) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(
+            UIAlertAction(title: "OK", style: .cancel))
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
 

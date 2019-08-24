@@ -34,6 +34,7 @@
 		FE53B2C6230FEFD400224258 /* CityWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2C5230FEFD400224258 /* CityWeather.swift */; };
 		FE53B2C9230FF1F700224258 /* CityWeatherMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2C8230FF1F700224258 /* CityWeatherMapping.swift */; };
 		FE53B2CC230FFA7700224258 /* WeatherFetchingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2CB230FFA7700224258 /* WeatherFetchingError.swift */; };
+		FE8A7E702310E4AA003EDA3D /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE8A7E6F2310E4AA003EDA3D /* PKHUD.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		FE53B2C5230FEFD400224258 /* CityWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeather.swift; sourceTree = "<group>"; };
 		FE53B2C8230FF1F700224258 /* CityWeatherMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherMapping.swift; sourceTree = "<group>"; };
 		FE53B2CB230FFA7700224258 /* WeatherFetchingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFetchingError.swift; sourceTree = "<group>"; };
+		FE8A7E6F2310E4AA003EDA3D /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE8A7E702310E4AA003EDA3D /* PKHUD.framework in Frameworks */,
 				FE53B2BC230FCB6F00224258 /* RxSwift.framework in Frameworks */,
 				FE226A9F230F4F7400DA538E /* AlamofireObjectMapper.framework in Frameworks */,
 				FE226AA0230F4F7400DA538E /* Alamofire.framework in Frameworks */,
@@ -119,6 +122,7 @@
 		FE226A9A230F4F7400DA538E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE8A7E6F2310E4AA003EDA3D /* PKHUD.framework */,
 				FE53B2AE230FB1A000224258 /* RxSwift.framework */,
 				FE226A9C230F4F7400DA538E /* Alamofire.framework */,
 				FE226A9B230F4F7400DA538E /* AlamofireObjectMapper.framework */,
@@ -149,6 +153,7 @@
 		FE3879B32310B99C00EEBA6F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FE3879BE2310C9E600EEBA6F /* Transformer */,
 				FE3879B42310B9CD00EEBA6F /* WeatherSummaryPresentationItem.swift */,
 			);
 			path = ViewModel;
@@ -179,6 +184,15 @@
 			path = Transformer;
 			sourceTree = "<group>";
 		};
+		FE3879C12310D58900EEBA6F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE226A88230F494600DA538E /* WeatherListViewController.swift */,
+				FE3879B92310C49E00EEBA6F /* WeatherListPresenter.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FE53B2A9230FB05500224258 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,11 +215,9 @@
 		FE53B2AB230FB08900224258 /* WeatherList */ = {
 			isa = PBXGroup;
 			children = (
-				FE3879BE2310C9E600EEBA6F /* Transformer */,
-				FE226A88230F494600DA538E /* WeatherListViewController.swift */,
+				FE3879C12310D58900EEBA6F /* View */,
 				FE3879B72310C1AE00EEBA6F /* Protocols */,
 				FE3879B32310B99C00EEBA6F /* ViewModel */,
-				FE3879B92310C49E00EEBA6F /* WeatherListPresenter.swift */,
 			);
 			path = WeatherList;
 			sourceTree = "<group>";
@@ -368,6 +380,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"/$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
+				"/$(SRCROOT)/Carthage/Build/iOS/PKHUD.framework",
 			);
 			outputFileListPaths = (
 			);
