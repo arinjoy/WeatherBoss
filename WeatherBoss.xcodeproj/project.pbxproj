@@ -43,6 +43,10 @@
 		FE8A7E8C23112E30003EDA3D /* WeatherDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E8B23112E30003EDA3D /* WeatherDetailsPresenter.swift */; };
 		FE8A7E8F2311307C003EDA3D /* WeatherDetailsPresenetationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E8E2311307C003EDA3D /* WeatherDetailsPresenetationItem.swift */; };
 		FE8A7E9223113327003EDA3D /* WeatherDetailsTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E9123113327003EDA3D /* WeatherDetailsTransformer.swift */; };
+		FE8A7E952311EB53003EDA3D /* SettingsCellPresentationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E942311EB53003EDA3D /* SettingsCellPresentationItem.swift */; };
+		FE8A7E982311EC1E003EDA3D /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E972311EC1E003EDA3D /* SettingsCell.swift */; };
+		FE8A7E9A2311F20F003EDA3D /* SettingsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E992311F20F003EDA3D /* SettingsDisplay.swift */; };
+		FE8A7E9C2311F2C8003EDA3D /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E9B2311F2C8003EDA3D /* SettingsPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +88,10 @@
 		FE8A7E8B23112E30003EDA3D /* WeatherDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsPresenter.swift; sourceTree = "<group>"; };
 		FE8A7E8E2311307C003EDA3D /* WeatherDetailsPresenetationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsPresenetationItem.swift; sourceTree = "<group>"; };
 		FE8A7E9123113327003EDA3D /* WeatherDetailsTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsTransformer.swift; sourceTree = "<group>"; };
+		FE8A7E942311EB53003EDA3D /* SettingsCellPresentationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellPresentationItem.swift; sourceTree = "<group>"; };
+		FE8A7E972311EC1E003EDA3D /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		FE8A7E992311F20F003EDA3D /* SettingsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDisplay.swift; sourceTree = "<group>"; };
+		FE8A7E9B2311F2C8003EDA3D /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,7 +236,11 @@
 		FE53B2AD230FB12100224258 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				FE8A7E962311EBE9003EDA3D /* UIComponents */,
+				FE8A7E932311EB1D003EDA3D /* ViewModels */,
 				FE226A8A230F494600DA538E /* SettingsViewController.swift */,
+				FE8A7E992311F20F003EDA3D /* SettingsDisplay.swift */,
+				FE8A7E9B2311F2C8003EDA3D /* SettingsPresenter.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -355,6 +367,22 @@
 			path = Transformer;
 			sourceTree = "<group>";
 		};
+		FE8A7E932311EB1D003EDA3D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FE8A7E942311EB53003EDA3D /* SettingsCellPresentationItem.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FE8A7E962311EBE9003EDA3D /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FE8A7E972311EC1E003EDA3D /* SettingsCell.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -458,9 +486,12 @@
 				FE8A7E8F2311307C003EDA3D /* WeatherDetailsPresenetationItem.swift in Sources */,
 				FE53B2C6230FEFD400224258 /* CityWeather.swift in Sources */,
 				FE226A8B230F494600DA538E /* SettingsViewController.swift in Sources */,
+				FE8A7E9A2311F20F003EDA3D /* SettingsDisplay.swift in Sources */,
+				FE8A7E952311EB53003EDA3D /* SettingsCellPresentationItem.swift in Sources */,
 				FE3879BA2310C49E00EEBA6F /* WeatherListPresenter.swift in Sources */,
 				FE53B2C9230FF1F700224258 /* CityWeatherMapping.swift in Sources */,
 				FE8A7E9223113327003EDA3D /* WeatherDetailsTransformer.swift in Sources */,
+				FE8A7E9C2311F2C8003EDA3D /* SettingsPresenter.swift in Sources */,
 				FE226A87230F494600DA538E /* AppDelegate.swift in Sources */,
 				FE3879A82310B11A00EEBA6F /* Theme.swift in Sources */,
 				FE3879BD2310C92E00EEBA6F /* DataTransforming.swift in Sources */,
@@ -469,6 +500,7 @@
 				FE53B2B3230FB3DE00224258 /* Constant.swift in Sources */,
 				FE3879B52310B9CD00EEBA6F /* WeatherSummaryPresentationItem.swift in Sources */,
 				FE3879AC2310B51400EEBA6F /* WeatherListDisplay.swift in Sources */,
+				FE8A7E982311EC1E003EDA3D /* SettingsCell.swift in Sources */,
 				FE53B2CC230FFA7700224258 /* WeatherFetchingError.swift in Sources */,
 				FE3879C02310CA2700EEBA6F /* WeatherListTransformer.swift in Sources */,
 				FE53B2BF230FE65300224258 /* CityWeatherData.swift in Sources */,

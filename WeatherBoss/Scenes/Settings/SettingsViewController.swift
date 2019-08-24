@@ -14,12 +14,30 @@ class SettingsViewController: UIViewController {
     // MARK: - View Properties
     
     private var tableView: UITableView!
+    
+    // MARK: - Private Properties
+    
+    /// The presenter conforming to the `SettingsPresenting`
+    private var presenter: SettingsPresenting!
+    
+    /// The table view's data source
+    private var dataSource: SettingsDataSource = SettingsDataSource()
+    
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        presenter = SettingsPresenter()
+        
+        // Injecting display weakly to the presenting instance
+        // TODO: Can be done via 3rd party Dependency Injection framework like Swinject and syntax could be simplified
+        (presenter as? SettingsPresenter)?.display = self
+        
         configureTableView()
+        
+        presenter.viewDidBecomeReady()
     }
     
     // MARK: - Private Helpers
@@ -27,55 +45,53 @@ class SettingsViewController: UIViewController {
     private func configureTableView() {
         tableView = UITableView(frame: self.view.bounds, style: .grouped)
         tableView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
-        tableView.dataSource = self
-        
         self.view.addSubview(tableView)
-    }
-    
-    @objc private func themeChnageSwitchTapped(_ sender: UISwitch) {
-        // TODO:
+        
+        tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
+        tableView.dataSource = self
+        tableView.backgroundColor = .groupTableViewBackground
     }
 }
+
+// MARK: - SettingsDisplay
+
+extension SettingsViewController: SettingsDisplay {
+    func setTitle(_ title: String) {
+        self.title = title
+    }
+    
+    func setSettingsDataSource(_ dataSource: SettingsDataSource) {
+        self.dataSource = dataSource
+        tableView.reloadData()
+    }
+}
+
 
 // MARK: - UITableViewDataSource
 
 extension SettingsViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return dataSource.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return dataSource.numberOfItems(inSection: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: nil)
-        
-        if indexPath.section == 0 {
-            cell.textLabel?.text = "Dark mode"
-            let switchView = UISwitch(frame: .zero)
-            switchView.setOn(false, animated: false)
-            switchView.tag = indexPath.row
-            switchView.addTarget(self, action: #selector(self.themeChnageSwitchTapped), for: .valueChanged)
-            cell.accessoryView = switchView
-        } else {
-            cell.textLabel?.text = "Version"
-            if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-                cell.detailTextLabel?.text = appVersion
-            }
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell") as? SettingsCell,
+            let item = dataSource.item(atIndexPath: indexPath)
+        else {
+                return UITableViewCell()
         }
+        cell.configure(withPresentationItem: item)
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Appearence"
-        } else {
-            return "App Info"
-        }
+        return dataSource.headerTitle(forSection: section)
     }
 }
 
