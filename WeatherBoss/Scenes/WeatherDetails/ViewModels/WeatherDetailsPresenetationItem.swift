@@ -6,12 +6,25 @@
 //  Copyright © 2019 ArinAppy. All rights reserved.
 //
 
+import UIKit
+
 struct WeatherDetailsPresentationItem {
+    
     let cityName: String
-    let temperature: String
-    let minTemperature: String
-    let maxTemperature: String
-    let windSpeed: String
-    let humidity: String
     let shortDescription: String?
+    
+    let temperature: String
+    let temperatureIcon: UIImage?
+    
+    let minTemperature: String
+    let minTemperatureIcon: UIImage?
+    
+    let maxTemperature: String
+    let maxTemperatureIcon: UIImage?
+    
+    let windSpeed: String
+    let windSpeedIcon: UIImage?
+    
+    let humidity: String
+    let humidityIcon: UIImage?
 }

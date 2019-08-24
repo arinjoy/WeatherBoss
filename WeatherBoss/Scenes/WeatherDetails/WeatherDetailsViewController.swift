@@ -53,9 +53,9 @@ final class WeatherDetailsViewController: UIViewController {
         view.addSubview(detailsView)
         
         detailsView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).offset(100)
-            make.leading.equalTo(view.snp.leading).offset(20)
-            make.trailing.equalTo(view.snp.trailing).offset(-20)
+            make.top.equalTo(view.snp.top).offset(120)
+            make.leading.equalTo(view.snp.leading).offset(15)
+            make.trailing.equalTo(view.snp.trailing).offset(-15)
         }
     }
 }

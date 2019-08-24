@@ -22,7 +22,7 @@ final class WeatherSummaryCell: UITableViewCell {
     private let cityNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .darkText
-        label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textAlignment = .left
         return label
     }()

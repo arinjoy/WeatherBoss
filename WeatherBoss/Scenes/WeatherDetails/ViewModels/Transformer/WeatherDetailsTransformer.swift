@@ -6,7 +6,7 @@
 //  Copyright © 2019 ArinAppy. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct WeatherDetailsTransformer: DataTransforming {
     
@@ -23,12 +23,18 @@ struct WeatherDetailsTransformer: DataTransforming {
     func transform(input: CityWeather) -> WeatherDetailsPresentationItem {
         return WeatherDetailsPresentationItem(
             cityName: input.cityName,
+            shortDescription: input.shortDescription?.lowercased(),
             temperature: temperatureString(input.temperature),
+            temperatureIcon: UIImage(named: "temperature-icon"),
             minTemperature: temperatureString(input.minTemperature),
+            minTemperatureIcon:  UIImage(named: "min-temp-icon"),
             maxTemperature: temperatureString(input.maxTemperature),
+            maxTemperatureIcon:  UIImage(named: "max-temp-icon"),
             windSpeed: windSpeedString(input.windSpeed),
+            windSpeedIcon: UIImage(named: "wind-icon"),
             humidity: humidityString(input.humidity),
-            shortDescription: input.shortDescription?.lowercased())
+            humidityIcon: UIImage(named: "cloud-humid-icon")
+        )
     }
     
     private func temperatureString(_ temperature: Double) -> String {
@@ -45,7 +51,7 @@ struct WeatherDetailsTransformer: DataTransforming {
     
     private func humidityString(_ humidity: Double) -> String {
         var humidityString = formatter?.string(from: NSNumber(value: humidity)) ?? ""
-        humidityString += " hpa"
+        humidityString += "% hpa"
         return humidityString
     }
 }
