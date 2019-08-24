@@ -15,4 +15,7 @@ protocol WeatherListPresenting: class {
     
     /// Will load current weather status for a list of given cities
     func loadCurrentWeatherOfCities()
+    
+    /// Called when user taps an item form the weather list
+    func didTapCityWeather(at index: Int)
 }

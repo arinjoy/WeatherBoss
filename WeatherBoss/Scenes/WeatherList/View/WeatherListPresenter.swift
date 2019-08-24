@@ -14,10 +14,17 @@ final class WeatherListPresenter: WeatherListPresenting {
     /// The front-facing view that conforms to the `WeatherListDisplay` protocol
     weak var display: WeatherListDisplay?
     
+    /// The routing instance for the presenter
+    var router: WeatherListRouting?
+    
+    
     // MARK: - Private Properties
     
     /// The service to fetch weather data of cities
     private let service = WeatherService()
+    
+    /// List of weather data fetched
+    private var weatherListData: [CityWeather]?
     
     /// The data tranforming helper
     private let tranformer = WeatherListTransformer()
@@ -35,7 +42,6 @@ final class WeatherListPresenter: WeatherListPresenting {
     }
     
     func loadCurrentWeatherOfCities() {
-        
         display?.showLoadingIndicator()
         
         service.getCurrentWeather(forCities: Constant.CityList)
@@ -59,9 +65,21 @@ final class WeatherListPresenter: WeatherListPresenting {
             .disposed(by: disposeBag)
     }
     
+    func didTapCityWeather(at index: Int) {
+        guard let weatherList = weatherListData,
+            index < weatherList.count
+        else { return }
+        
+        let weather = weatherList[index]
+        router?.routeToWeatherDetails(withSceneModel: weather)
+    }
+    
     // MARK: - Private Helpers
     
     private func handleUpdatingDataSource(_ input: [CityWeather]) {
+        // Keep reference to teh latest fetched weather data
+        weatherListData = input
+        
         let dataSource = tranformer.transform(input: input)
         display?.setWeatherListDataSource(dataSource)
     }

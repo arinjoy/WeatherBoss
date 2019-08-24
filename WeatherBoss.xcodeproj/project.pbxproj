@@ -37,6 +37,9 @@
 		FE8A7E702310E4AA003EDA3D /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE8A7E6F2310E4AA003EDA3D /* PKHUD.framework */; };
 		FE8A7E732310ECE6003EDA3D /* WeatherSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E722310ECE6003EDA3D /* WeatherSummaryCell.swift */; };
 		FE8A7E7C2310FFD2003EDA3D /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E7B2310FFD2003EDA3D /* Shadow.swift */; };
+		FE8A7E8023111275003EDA3D /* WeatherDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E7F23111275003EDA3D /* WeatherDetailsViewController.swift */; };
+		FE8A7E83231115CF003EDA3D /* WeatherDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E82231115CF003EDA3D /* WeatherDetailView.swift */; };
+		FE8A7E8523111F98003EDA3D /* WeatherListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E8423111F98003EDA3D /* WeatherListRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,9 @@
 		FE8A7E6F2310E4AA003EDA3D /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		FE8A7E722310ECE6003EDA3D /* WeatherSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSummaryCell.swift; sourceTree = "<group>"; };
 		FE8A7E7B2310FFD2003EDA3D /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
+		FE8A7E7F23111275003EDA3D /* WeatherDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsViewController.swift; sourceTree = "<group>"; };
+		FE8A7E82231115CF003EDA3D /* WeatherDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailView.swift; sourceTree = "<group>"; };
+		FE8A7E8423111F98003EDA3D /* WeatherListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,15 +170,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		FE3879B72310C1AE00EEBA6F /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				FE3879A92310B46E00EEBA6F /* WeatherListPresenting.swift */,
-				FE3879AB2310B51400EEBA6F /* WeatherListDisplay.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		FE3879BB2310C8FB00EEBA6F /* DataTransform */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +192,9 @@
 				FE8A7E712310ECAF003EDA3D /* UIComponents */,
 				FE226A88230F494600DA538E /* WeatherListViewController.swift */,
 				FE3879B92310C49E00EEBA6F /* WeatherListPresenter.swift */,
+				FE3879A92310B46E00EEBA6F /* WeatherListPresenting.swift */,
+				FE3879AB2310B51400EEBA6F /* WeatherListDisplay.swift */,
+				FE8A7E8423111F98003EDA3D /* WeatherListRouter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +202,7 @@
 		FE53B2A9230FB05500224258 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FE8A7E7E23111248003EDA3D /* WeatherDetails */,
 				FE53B2AD230FB12100224258 /* Settings */,
 				FE53B2AB230FB08900224258 /* WeatherList */,
 				FE53B2AA230FB06800224258 /* Root */,
@@ -222,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				FE3879C12310D58900EEBA6F /* View */,
-				FE3879B72310C1AE00EEBA6F /* Protocols */,
 				FE3879B32310B99C00EEBA6F /* ViewModel */,
 			);
 			path = WeatherList;
@@ -319,6 +319,23 @@
 				FE8A7E7B2310FFD2003EDA3D /* Shadow.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		FE8A7E7E23111248003EDA3D /* WeatherDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FE8A7E812311155E003EDA3D /* UIComponents */,
+				FE8A7E7F23111275003EDA3D /* WeatherDetailsViewController.swift */,
+			);
+			path = WeatherDetails;
+			sourceTree = "<group>";
+		};
+		FE8A7E812311155E003EDA3D /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FE8A7E82231115CF003EDA3D /* WeatherDetailView.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE8A7E8023111275003EDA3D /* WeatherDetailsViewController.swift in Sources */,
 				FE3879B02310B6C900EEBA6F /* DataSource.swift in Sources */,
 				FE53B2C6230FEFD400224258 /* CityWeather.swift in Sources */,
 				FE226A8B230F494600DA538E /* SettingsViewController.swift in Sources */,
@@ -429,6 +447,7 @@
 				FE3879BD2310C92E00EEBA6F /* DataTransforming.swift in Sources */,
 				FE8A7E7C2310FFD2003EDA3D /* Shadow.swift in Sources */,
 				FE3879AA2310B46E00EEBA6F /* WeatherListPresenting.swift in Sources */,
+				FE8A7E83231115CF003EDA3D /* WeatherDetailView.swift in Sources */,
 				FE53B2B3230FB3DE00224258 /* Constant.swift in Sources */,
 				FE3879B52310B9CD00EEBA6F /* WeatherSummaryPresentationItem.swift in Sources */,
 				FE3879AC2310B51400EEBA6F /* WeatherListDisplay.swift in Sources */,
@@ -440,6 +459,7 @@
 				FE8A7E732310ECE6003EDA3D /* WeatherSummaryCell.swift in Sources */,
 				FE53B2C4230FEF6A00224258 /* DomainMapping.swift in Sources */,
 				FE226A89230F494600DA538E /* WeatherListViewController.swift in Sources */,
+				FE8A7E8523111F98003EDA3D /* WeatherListRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

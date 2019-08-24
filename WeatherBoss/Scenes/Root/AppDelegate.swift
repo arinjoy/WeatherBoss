@@ -40,13 +40,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         settingsTabNavigationControlller?.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.more, tag: 1)
         
         tabBarController.viewControllers = [weatherListTabNavigationController, settingsTabNavigationControlller] as? [UIViewController]
-        UITabBar.appearance().tintColor = Theme.Color.teal
+        
+        customiseAppTheme()
         
         self.window?.rootViewController = tabBarController
-        
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    // MARK: - Private Helpers
+    
+    private func customiseAppTheme() {
+        self.window?.tintColor = Theme.Color.teal
     }
 }
 

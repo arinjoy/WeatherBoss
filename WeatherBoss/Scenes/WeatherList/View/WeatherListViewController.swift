@@ -8,6 +8,7 @@
 
 import UIKit
 import PKHUD
+import SnapKit
 
 final class WeatherListViewController: UIViewController {
     
@@ -18,7 +19,7 @@ final class WeatherListViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private let presenter: WeatherListPresenting = WeatherListPresenter()
+    private let presenter: WeatherListPresenter = WeatherListPresenter()
     
     /// The table view's data source
     private var dataSource: WeatherListDataSource = WeatherListDataSource()
@@ -30,15 +31,12 @@ final class WeatherListViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        (presenter as? WeatherListPresenter)?.display = self
-
+        
+        presenter.display = self
+        presenter.router = WeatherListRouter(sourceViewController: self)
+        
         configureTableView()
         presenter.viewDidBecomeReady()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
         presenter.loadCurrentWeatherOfCities()
     }
     
@@ -57,11 +55,10 @@ final class WeatherListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
         
         tableView.dataSource = self
         tableView.delegate = self
-        
-        tableView.backgroundColor = .white
         
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshWeatherData), for: .valueChanged)
@@ -104,7 +101,7 @@ extension WeatherListViewController: WeatherListDisplay {
 
 // MARK: - UITableViewDataSource
 
-extension WeatherListViewController: UITableViewDataSource, UITableViewDelegate {
+extension WeatherListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataSource.numberOfSections()
@@ -115,17 +112,20 @@ extension WeatherListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // TODO: use custom cells
         let cell = WeatherSummaryCell(style: .default, reuseIdentifier: "WeatherSummaryCell")
-        
         if let item = dataSource.item(atIndexPath: indexPath) {
-//            cell.textLabel?.text = item.cityName
-//            cell.detailTextLabel?.text = item.currentTemperature
-            
             cell.configure(withPresentationItem: item)
         }
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension WeatherListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didTapCityWeather(at: indexPath.row)
     }
 }
 

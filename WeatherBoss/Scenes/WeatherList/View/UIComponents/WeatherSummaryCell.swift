@@ -41,7 +41,8 @@ final class WeatherSummaryCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        createViewAndApplyConstraints()
+        self.selectionStyle = UITableViewCell.SelectionStyle.none
+        buildUIAndApplyConstraints()
         applyContainerStyle()
     }
     
@@ -49,19 +50,19 @@ final class WeatherSummaryCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Private helpers
+    // MARK: - Private Helpers
     
-    private func createViewAndApplyConstraints() {
+    private func buildUIAndApplyConstraints() {
         
         contentView.addSubview(containerCardView)
         containerCardView.addSubview(cityNameLabel)
         containerCardView.addSubview(temperatureLabel)
         
         containerCardView.snp.makeConstraints { make in
-            make.leading.equalTo(contentView.snp.leading).offset(10)
-            make.trailing.equalTo(contentView.snp.trailing).offset(-10)
-            make.top.equalTo(contentView.snp.top).offset(5)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-5)
+            make.leading.equalTo(contentView.snp.leading).offset(16)
+            make.trailing.equalTo(contentView.snp.trailing).offset(-16)
+            make.top.equalTo(contentView.snp.top).offset(8)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
         }
         
         cityNameLabel.snp.makeConstraints { make in
@@ -76,6 +77,7 @@ final class WeatherSummaryCell: UITableViewCell {
             make.bottom.equalTo(containerCardView.snp.bottom).offset(-16)
         }
     }
+    
     private func applyContainerStyle() {
         Shadow(color: .black,
                opacity: 0.3, blur: 4,
