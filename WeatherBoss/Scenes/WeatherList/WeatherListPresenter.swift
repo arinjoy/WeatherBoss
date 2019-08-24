@@ -29,7 +29,6 @@ final class WeatherListPresenter: WeatherListPresenting {
     /// The routing instance for the presenter
     var router: WeatherListRouting?
     
-    
     // MARK: - Private Properties
     
     /// The service to fetch weather data of cities

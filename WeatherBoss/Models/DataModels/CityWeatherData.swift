@@ -20,6 +20,9 @@ class CityWeatherData: Mappable {
     var humidity: Double?
     var windSpeed: Double?
     
+    // Additional weather info comes as array
+    var weatherInfo: [WeatherInfo]?
+    
     required init?(map: Map) {
     }
     
@@ -31,5 +34,19 @@ class CityWeatherData: Mappable {
         maxTemperature <- map["main.temp_max"]
         humidity <- map["main.humidity"]
         windSpeed <- map["wind.speed"]
+        weatherInfo <- map["weather"]
+    }
+}
+
+class WeatherInfo: Mappable {
+    
+    // The short summary of the weather and cloudiness
+    var summary: String?
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        summary <- map["description"]
     }
 }

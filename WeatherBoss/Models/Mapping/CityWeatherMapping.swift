@@ -26,14 +26,14 @@ struct CityWeatherMapping: DomainMapping {
         }
         
         return CityWeather(
-            associatedCityId: String(cityId), // Int to String conversion
+            cityId: String(cityId), // Integer to String conversion for id
             cityName: cityName,
             temperature: temperature,
             minTemperature: minTemperature,
             maxTemperature: maxTemperature,
             humidity: humidity,
             windSpeed: windSpeed,
-            shortInfoText: dataObject.shortDescription // This short description may not be always present
+            shortDescription: dataObject.weatherInfo?.first?.summary // This summary description may not be always present
         )
     }
 }

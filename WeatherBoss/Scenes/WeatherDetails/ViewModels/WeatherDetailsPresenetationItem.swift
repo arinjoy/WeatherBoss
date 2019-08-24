@@ -8,10 +8,10 @@
 
 struct WeatherDetailsPresentationItem {
     let cityName: String
-    let currentTemperature: String
+    let temperature: String
     let minTemperature: String
     let maxTemperature: String
     let windSpeed: String
     let humidity: String
-    let description: String?
+    let shortDescription: String?
 }

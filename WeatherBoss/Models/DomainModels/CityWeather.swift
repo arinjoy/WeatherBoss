@@ -8,7 +8,7 @@
 
 struct CityWeather {
     
-    let associatedCityId: String
+    let cityId: String
     let cityName: String
     
     let temperature: Double
@@ -17,5 +17,5 @@ struct CityWeather {
     let humidity: Double
     let windSpeed: Double
     
-    let shortInfoText: String?
+    let shortDescription: String?
 }

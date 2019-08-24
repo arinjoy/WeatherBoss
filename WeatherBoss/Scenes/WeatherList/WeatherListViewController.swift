@@ -112,10 +112,13 @@ extension WeatherListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = WeatherSummaryCell(style: .default, reuseIdentifier: "WeatherSummaryCell")
-        if let item = dataSource.item(atIndexPath: indexPath) {
-            cell.configure(withPresentationItem: item)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherSummaryCell") as? WeatherSummaryCell,
+            let item = dataSource.item(atIndexPath: indexPath)
+        else {
+            return UITableViewCell()
         }
+
+        cell.configure(withPresentationItem: item)
         return cell
     }
 }

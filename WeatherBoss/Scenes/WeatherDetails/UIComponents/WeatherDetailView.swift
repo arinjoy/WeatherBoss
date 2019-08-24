@@ -100,11 +100,11 @@ extension WeatherDetailView {
     
     func configure(withPresentationItem item: WeatherDetailsPresentationItem) {
         cityLabel.text = item.cityName
-        mainTemperatureLabel.text = item.currentTemperature
+        mainTemperatureLabel.text = item.temperature
         minTemperatureLabel.text = item.minTemperature
         maxTemperatureLabel.text = item.maxTemperature
         windSpeedLabel.text = item.windSpeed
         humidityLabel.text = item.humidity
-        shortDescriptionLabel.text = item.description
+        shortDescriptionLabel.text = item.shortDescription
     }
 }

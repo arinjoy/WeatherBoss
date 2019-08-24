@@ -23,12 +23,12 @@ struct WeatherDetailsTransformer: DataTransforming {
     func transform(input: CityWeather) -> WeatherDetailsPresentationItem {
         return WeatherDetailsPresentationItem(
             cityName: input.cityName,
-            currentTemperature: temperatureString(input.temperature),
+            temperature: temperatureString(input.temperature),
             minTemperature: temperatureString(input.minTemperature),
             maxTemperature: temperatureString(input.maxTemperature),
             windSpeed: windSpeedString(input.windSpeed),
             humidity: humidityString(input.humidity),
-            description: input.shortInfoText?.lowercased())
+            shortDescription: input.shortDescription?.lowercased())
     }
     
     private func temperatureString(_ temperature: Double) -> String {
