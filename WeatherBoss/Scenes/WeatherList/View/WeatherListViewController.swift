@@ -14,6 +14,7 @@ final class WeatherListViewController: UIViewController {
     // MARK: - View Properties
     
     private var tableView: UITableView!
+    private let refreshControl = UIRefreshControl()
     
     // MARK: - Private Properties
     
@@ -27,17 +28,11 @@ final class WeatherListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.prefersLargeTitles = true
-        
         (presenter as? WeatherListPresenter)?.display = self
-        
-        tableView = UITableView(frame: self.view.bounds, style: .plain)
-        tableView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
-        self.view.addSubview(tableView)
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.backgroundColor = .white
-        
+
+        configureTableView()
         presenter.viewDidBecomeReady()
     }
     
@@ -46,6 +41,27 @@ final class WeatherListViewController: UIViewController {
         
         presenter.loadCurrentWeatherOfCities()
     }
+    
+    // MARK: - Private Helpers
+    
+    @objc private func refreshWeatherData() {
+        presenter.loadCurrentWeatherOfCities()
+    }
+    
+    private func configureTableView() {
+        tableView = UITableView(frame: self.view.bounds, style: .plain)
+        tableView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        self.view.addSubview(tableView)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.backgroundColor = .white
+        
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData), for: .valueChanged)
+    }
+    
 }
 
 // MARK: - WeatherListDisplay
@@ -66,15 +82,16 @@ extension WeatherListViewController: WeatherListDisplay {
     }
     
     func hideLoadingIndicator() {
-        HUD.hide(afterDelay: 0.25)
+        HUD.hide()
+        refreshControl.endRefreshing()
     }
     
-    func showError(title: String, message: String) {
+    func showError(title: String, message: String, dismissTitle: String) {
         let alertController = UIAlertController(title: title,
                                                 message: message,
                                                 preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(
-            UIAlertAction(title: "OK", style: .cancel))
+            UIAlertAction(title: dismissTitle, style: .cancel))
         
         present(alertController, animated: true, completion: nil)
     }

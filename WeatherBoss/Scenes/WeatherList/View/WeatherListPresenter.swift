@@ -44,12 +44,17 @@ final class WeatherListPresenter: WeatherListPresenting {
                 self?.display?.hideLoadingIndicator()
                 self?.handleUpdatingDataSource(result)
             }, onError: { [weak self] error in
-                self?.display?.hideLoadingIndicator()
-                
-                // TODO: Detect error code and customise accordingly
-                self?.display?.showError(
-                    title: "Oops. Something wrong",
-                    message: "There are some technical difficulties. Please try again.")
+        
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
+                    self?.display?.hideLoadingIndicator()
+                    
+                    // TODO: Detect error code and customise accordingly
+                    self?.display?.showError(
+                        title: "Oops. Something wrong",
+                        message: "There are some technical difficulties. Please try again.",
+                        dismissTitle: "OK")
+                })
+
             })
             .disposed(by: disposeBag)
     }
