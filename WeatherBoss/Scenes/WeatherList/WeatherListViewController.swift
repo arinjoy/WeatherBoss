@@ -19,7 +19,8 @@ final class WeatherListViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private let presenter: WeatherListPresenter = WeatherListPresenter()
+    /// The presenter conforming to the `WeatherListPresenting`
+    private var presenter: WeatherListPresenting!
     
     /// The table view's data source
     private var dataSource: WeatherListDataSource = WeatherListDataSource()
@@ -32,10 +33,15 @@ final class WeatherListViewController: UIViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        presenter.display = self
-        presenter.router = WeatherListRouter(sourceViewController: self)
+        presenter = WeatherListPresenter()
+        
+        // Injecting display & router weakly to the presenting instance
+        // TODO: Can be done via 3rd party Dependency Injection framework like Swinject and syntax could be simplified
+        (presenter as? WeatherListPresenter)?.display = self
+        (presenter as? WeatherListPresenter)?.router = WeatherListRouter(sourceViewController: self)
         
         configureTableView()
+        
         presenter.viewDidBecomeReady()
         presenter.loadCurrentWeatherOfCities()
     }

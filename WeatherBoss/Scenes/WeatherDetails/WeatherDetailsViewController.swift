@@ -16,7 +16,8 @@ final class WeatherDetailsViewController: UIViewController {
     /// The scene model data to being passed along from previous context
     private var sceneModel: CityWeather
     
-    private let presenter: WeatherDetailsPresenter = WeatherDetailsPresenter()
+    /// The presenter conforming to the `WeatherDetailsPresenting`
+    private var presenter: WeatherDetailsPresenting!
     
     /// The UI holding view for details
     private var detailsView: WeatherDetailView!
@@ -37,9 +38,13 @@ final class WeatherDetailsViewController: UIViewController {
 
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .white
+        
+        presenter = WeatherDetailsPresenter()
 
-        presenter.display = self
-        presenter.sceneModel = sceneModel
+        // Injecting display & scene model weakly to the presenting instance
+        // TODO: Can be done via 3rd party Dependency Injection framework like Swinject and syntax could be simplified
+        (presenter as? WeatherDetailsPresenter)?.display = self
+        (presenter as? WeatherDetailsPresenter)?.sceneModel = sceneModel
         
         buildUIAndApplyConstraints()
         
