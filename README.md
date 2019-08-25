@@ -13,9 +13,9 @@ The weather data of Australian cities are fetched from [OpenWeather.org](https:/
 ## 3rd Party Libraries
  - **`RxSwift`** - to make `Reactive` binding of API call and response 😇
  - **`Alamofire`** - to call API much easily 😀
- - **`ObjectMapper`** - to map `JSON` to data models easily 😊
+ - **`ObjectMapper`** - to map `JSON` response to data models easily 😊
  - **`SnapKit`** - to snap auto layout constraints with ease 🤓
- - **`PKHUD`** - to show loading activity indicator like a pro 😎
+ - **`PKHUD`** - to show loading activity indicator like a pro 🙈
 
 
 ## Clean Architecture
