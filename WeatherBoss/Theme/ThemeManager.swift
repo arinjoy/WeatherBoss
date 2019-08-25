@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import PKHUD
 
 /// A singleton type of manager that handles the theme maintenance
 final class ThemeManager {
@@ -36,7 +37,6 @@ final class ThemeManager {
         UITabBar.appearance().barStyle = theme.barStyle
         
         UISwitch.appearance().thumbTintColor = theme.tintColor
-        UISwitch.appearance().onTintColor = theme.secondaryBackgroundColor
-    
+        UISwitch.appearance().onTintColor = theme.darkerBackgroundColor
     }
 }

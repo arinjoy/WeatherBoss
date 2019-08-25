@@ -80,7 +80,7 @@ final class WeatherListViewController: UIViewController {
         navigationController?.navigationBar.barStyle = Theme.current.barStyle
         navigationController?.tabBarController?.tabBar.barStyle = Theme.current.barStyle
         view.backgroundColor = Theme.current.backgroundColor
-        tableView.backgroundColor = Theme.current.secondaryBackgroundColor
+        tableView.backgroundColor = Theme.current.darkerBackgroundColor
         tableView.refreshControl?.tintColor = Theme.current.subtitleTextColor
     }
 }

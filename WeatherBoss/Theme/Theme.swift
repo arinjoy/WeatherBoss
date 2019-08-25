@@ -10,10 +10,10 @@ import UIKit
 
 enum Theme: Int {
     
-    /// A standard Apple style light theme
+    /// A standard Apple style light theme with teal as tint
     case light
     
-    /// A custom brown/oragish darker theme
+    /// A custom brown/orangish darker theme orange as tint
     case dark
     
     static var current: Theme {
@@ -25,9 +25,9 @@ enum Theme: Int {
     var tintColor: UIColor {
         switch self {
         case .light:
-            return UIColor(red: 58/255.0, green: 141/255.0, blue: 123/255.0, alpha: 1.0) // light teal
+            return UIColor.colorFrom(red: 58, green: 141, blue: 123) // light teal
         case .dark:
-            return UIColor(red: 234/255.0, green: 109/255.0, blue: 87/255.0, alpha: 1.0)  // dark orange
+            return UIColor.colorFrom(red: 234, green: 109, blue: 87) // dark orange
         }
     }
     
@@ -36,16 +36,16 @@ enum Theme: Int {
         case .light:
             return .white
         case .dark:
-            return UIColor(red: 90/255.0, green: 74/255.0, blue: 71/255.0, alpha: 1.0) // orangish gray
+            return UIColor.colorFrom(red: 97, green: 84, blue: 82) // light orangish gray
         }
     }
     
-    var secondaryBackgroundColor: UIColor {
+    var darkerBackgroundColor: UIColor {
         switch self {
         case .light:
-            return .groupTableViewBackground
+            return UIColor.colorFrom(red: 226, green: 232, blue: 230) // light tealish gray
         case .dark:
-            return UIColor(red: 103/255.0, green: 87/255.0, blue: 84/255.0, alpha: 1.0)
+            return UIColor.colorFrom(red: 70, green: 58, blue: 56) // dark orangish gray
         }
     }
     
@@ -54,7 +54,7 @@ enum Theme: Int {
         case .light:
             return .darkText
         case .dark:
-            return .lightText
+            return UIColor.colorFrom(red: 246, green: 242, blue: 241)
         }
     }
     
@@ -63,7 +63,7 @@ enum Theme: Int {
         case .light:
             return .darkGray
         case .dark:
-            return .lightGray
+            return UIColor.colorFrom(red: 234, green: 224, blue: 224)
         }
     }
     
@@ -76,5 +76,11 @@ enum Theme: Int {
         case .dark:
             return .black
         }
+    }
+}
+
+private extension UIColor {
+    static func colorFrom(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
+        return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1.0)
     }
 }

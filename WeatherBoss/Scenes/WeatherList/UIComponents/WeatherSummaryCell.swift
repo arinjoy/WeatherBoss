@@ -42,7 +42,7 @@ final class WeatherSummaryCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.selectionStyle = UITableViewCell.SelectionStyle.none
-        contentView.backgroundColor = Theme.current.secondaryBackgroundColor
+        contentView.backgroundColor = Theme.current.darkerBackgroundColor
         buildUIAndApplyConstraints()
         applyContainerStyle()
     }
