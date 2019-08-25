@@ -12,27 +12,16 @@ import RxSwift
 
 final class WeatherService {
     
-    private enum Constant {
-        static let serverPath: String = "https://api.openweathermap.org/data/2.5/group"
-        static let apiKey: String = "a90804ee877a7f99ffe80dbbfd23695c"
-        static let weatherUnit: String = "metric"
-    }
-    
-    private var manager: SessionManager
+    /// A low level Api client that provides URL request to get weather response
+    private var apiClient: WeatherApiClient
     
     init() {
-        self.manager = Alamofire.SessionManager.default
+        self.apiClient = WeatherApiClient()
     }
     
-    
-    func getCurrentWeather(forCities cities: [String: String]) -> Observable<[CityWeather]> {
-        
+    func getCurrentWeather(forCities cityIds: [String]) -> Observable<[CityWeather]> {
         return Observable.create { [weak self] observer -> Disposable in
-            self?.manager.request(
-                Constant.serverPath,
-                method: HTTPMethod.get,
-                parameters: self?.buildQueryParams(fromCities: cities) ?? [:]
-            )
+            self?.apiClient.fetchWeatherForCitiesRequest(forCityIds: cityIds)
             .validate()
             .responseJSON { response in
                 switch response.result {
@@ -63,20 +52,5 @@ final class WeatherService {
             }
             return Disposables.create()
         }
-    }
-    
-    // MARK: - Private Helpers
-    
-    private func buildQueryParams(fromCities cities: [String: String]) -> Parameters {
-        var cityIdList: [String] = []
-        for (_, item) in cities.enumerated() {
-            cityIdList.append(item.key)
-        }
-        
-        return [
-            "id": cityIdList.joined(separator: ","),
-            "units": Constant.weatherUnit,
-            "APPID": Constant.apiKey
-        ]
     }
 }

@@ -55,23 +55,23 @@ final class WeatherListPresenter: WeatherListPresenting {
     func loadCurrentWeatherOfCities() {
         display?.showLoadingIndicator()
         
-        service.getCurrentWeather(forCities: Constant.CityList)
+        service.getCurrentWeather(forCities: Constant.CityIDs)
             .observeOn(MainScheduler.instance)
+            .delay(0.5, scheduler: MainScheduler.instance) // Add a slight delay to so asynchronous acitivity
             .subscribe(onNext: { [weak self] result in
+                
                 self?.display?.hideLoadingIndicator()
                 self?.handleUpdatingDataSource(result)
+                
             }, onError: { [weak self] error in
         
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
-                    self?.display?.hideLoadingIndicator()
-                    
-                    // TODO: Detect error code and customise accordingly
-                    self?.display?.showError(
-                        title: "Oops. Something wrong",
-                        message: "There are some technical difficulties. Please try again.",
-                        dismissTitle: "OK")
-                })
-
+                self?.display?.hideLoadingIndicator()
+                
+                // TODO: Detect error code and customise accordingly
+                self?.display?.showError(
+                    title: "Oops. Something wrong",
+                    message: "There are some technical difficulties. Please try again.",
+                    dismissTitle: "OK")
             })
             .disposed(by: disposeBag)
     }
