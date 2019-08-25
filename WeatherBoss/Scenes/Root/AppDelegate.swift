@@ -41,18 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabBarController.viewControllers = [weatherListTabNavigationController, settingsTabNavigationControlller] as? [UIViewController]
         
-        customiseAppTheme()
+        ThemeManager.applyTheme(Theme.current)
         
         self.window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
         return true
-    }
-    
-    // MARK: - Private Helpers
-    
-    private func customiseAppTheme() {
-        ThemeManager.applyTheme(ThemeManager.currentAppTheme())
     }
 }
 

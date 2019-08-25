@@ -15,13 +15,13 @@ final class WeatherSummaryCell: UITableViewCell {
     
     private let containerCardView: UIView = {
         let view = UIView()
-        view.backgroundColor = ThemeManager.currentAppTheme().backgroundColor
+        view.backgroundColor = Theme.current.backgroundColor
         return view
     }()
     
     private let cityNameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = ThemeManager.currentAppTheme().titleTextColor
+        label.textColor = Theme.current.titleTextColor
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textAlignment = .left
         return label
@@ -30,7 +30,7 @@ final class WeatherSummaryCell: UITableViewCell {
     
     private let temperatureLabel: UILabel = {
         let label = UILabel()
-        label.textColor = ThemeManager.currentAppTheme().subtitleTextColor
+        label.textColor = Theme.current.subtitleTextColor
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textAlignment = .right
         return label
@@ -42,7 +42,7 @@ final class WeatherSummaryCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.selectionStyle = UITableViewCell.SelectionStyle.none
-        contentView.backgroundColor = ThemeManager.currentAppTheme().secondaryBackgroundColor
+        contentView.backgroundColor = Theme.current.secondaryBackgroundColor
         buildUIAndApplyConstraints()
         applyContainerStyle()
     }
@@ -80,7 +80,7 @@ final class WeatherSummaryCell: UITableViewCell {
     }
     
     private func applyContainerStyle() {
-        Shadow(color: ThemeManager.currentAppTheme().titleTextColor,
+        Shadow(color: Theme.current.titleTextColor,
                opacity: 0.3, blur: 4,
                offset: CGSize(width: 0, height: 2))
             .apply(toView: containerCardView)

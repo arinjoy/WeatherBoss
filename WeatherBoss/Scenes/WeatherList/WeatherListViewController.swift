@@ -24,8 +24,6 @@ final class WeatherListViewController: UIViewController {
     
     /// The table view's data source
     private var dataSource: WeatherListDataSource = WeatherListDataSource()
-    
-    private let theme = ThemeManager.currentAppTheme()
 
     // MARK: - Lifecycle
     
@@ -33,7 +31,7 @@ final class WeatherListViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = theme.backgroundColor
+        view.backgroundColor = Theme.current.backgroundColor
         
         presenter = WeatherListPresenter()
         
@@ -63,7 +61,7 @@ final class WeatherListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
         tableView.separatorStyle = .none
-        tableView.backgroundColor = theme.backgroundColor
+        tableView.backgroundColor = Theme.current.backgroundColor
         
         tableView.dataSource = self
         tableView.delegate = self

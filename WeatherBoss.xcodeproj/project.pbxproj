@@ -133,7 +133,7 @@
 		FE226A85230F494600DA538E /* WeatherBoss */ = {
 			isa = PBXGroup;
 			children = (
-				FE8A7EA023120EC1003EDA3D /* Managers */,
+				FE8A7EA023120EC1003EDA3D /* Theme */,
 				FE3879AD2310B69100EEBA6F /* Utils */,
 				FE53B2B8230FB9E700224258 /* Models */,
 				FE53B2B4230FB6F000224258 /* Services */,
@@ -252,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				FE53B2B2230FB3DE00224258 /* Constant.swift */,
-				FE3879A72310B11A00EEBA6F /* Theme.swift */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -386,12 +385,13 @@
 			path = UIComponents;
 			sourceTree = "<group>";
 		};
-		FE8A7EA023120EC1003EDA3D /* Managers */ = {
+		FE8A7EA023120EC1003EDA3D /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				FE3879A72310B11A00EEBA6F /* Theme.swift */,
 				FE8A7E9E23120D0A003EDA3D /* ThemeManager.swift */,
 			);
-			path = Managers;
+			path = Theme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

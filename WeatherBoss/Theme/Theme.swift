@@ -10,7 +10,15 @@ import UIKit
 
 enum Theme: Int {
     
-    case light, dark
+    /// A standard Apple style light theme
+    case light
+    
+    /// A custom brown/oragish darker theme
+    case dark
+    
+    static var current: Theme {
+        return ThemeManager.currentAppTheme()
+    }
     
     // MARK: - Colors
     

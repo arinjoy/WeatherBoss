@@ -37,7 +37,7 @@ final class WeatherDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = ThemeManager.currentAppTheme().backgroundColor
+        view.backgroundColor = Theme.current.backgroundColor
         
         presenter = WeatherDetailsPresenter()
 

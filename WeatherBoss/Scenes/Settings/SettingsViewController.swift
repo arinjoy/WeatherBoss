@@ -23,14 +23,12 @@ class SettingsViewController: UIViewController {
     /// The table view's data source
     private var dataSource: SettingsDataSource = SettingsDataSource()
     
-    private let theme = ThemeManager.currentAppTheme()
-    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = ThemeManager.currentAppTheme().backgroundColor
+        view.backgroundColor = Theme.current.backgroundColor
         
         presenter = SettingsPresenter()
         
@@ -59,7 +57,7 @@ class SettingsViewController: UIViewController {
         tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = theme.secondaryBackgroundColor
+        tableView.backgroundColor = Theme.current.secondaryBackgroundColor
     }
 }
 
@@ -110,7 +108,7 @@ extension SettingsViewController: UITableViewDataSource {
 extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-       (view as? UITableViewHeaderFooterView)?.textLabel?.textColor = theme.subtitleTextColor
+       (view as? UITableViewHeaderFooterView)?.textLabel?.textColor = Theme.current.subtitleTextColor
     }
 }
 

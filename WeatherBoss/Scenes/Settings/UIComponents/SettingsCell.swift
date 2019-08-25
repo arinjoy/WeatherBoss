@@ -14,8 +14,6 @@ final class SettingsCell: UITableViewCell {
     // MARK: - Properties
     
     private var switchAction: SwitchAction?
-    
-    private let theme = ThemeManager.currentAppTheme()
 
     // MARK: - Lifecycle
     
@@ -45,13 +43,13 @@ extension SettingsCell {
         self.detailTextLabel?.text = item.subtitle
         self.imageView?.image = item.icon
         
-        self.backgroundColor = theme.backgroundColor
-        self.textLabel?.textColor = theme.titleTextColor
-        self.detailTextLabel?.textColor = theme.subtitleTextColor
+        self.backgroundColor = Theme.current.backgroundColor
+        self.textLabel?.textColor = Theme.current.titleTextColor
+        self.detailTextLabel?.textColor = Theme.current.subtitleTextColor
         
         if item.showSwitchControl {
             let switchView = UISwitch(frame: .zero)
-            switchView.setOn(false, animated: false)
+            switchView.setOn(item.isSwitchOn, animated: true)
             switchView.addTarget(self, action: #selector(self.switchChanged), for: .valueChanged)
             self.accessoryView = switchView
             

@@ -32,7 +32,7 @@ final class SettingsPresenter: SettingsPresenting {
     
     private func buildSettingsDataSource() -> SettingsDataSource {
         
-        let isCurrentyInDarkTheme = ThemeManager.currentAppTheme() == .dark
+        let isCurrentyInDarkTheme = Theme.current == .dark
         
         let themeChangeItem = SettingsCellPresentationItem(
             title: "Dark mode",
