@@ -40,10 +40,19 @@ The weather data of Australian cities are fetched from [OpenWeather.org](https:/
   - `Transformer`: Helper that converts a domain model to presentation item or view model with necessary formatting and style if needed
   - `PresentationItem`: aka. view model that is used to configure views with data (and potentially style)
   
+## Theme
+> A custom theme engine is used. It has `light` and `dark` style. 
+User is allowed to toggle between default `light mode` and `dark mode` through settings. Refer to the `ThemeManger` under `Theme` group to see how it is exposed and binds togther the current app theme and colours that are provided text labels and view backgrounds. 
+-  `enum` based mechanism is used for to access every instance of `UIColor` used in the app
+- `Theme+Icon` provides icons used in the app and all instances of `UIImage`s are accessed from `Theme.Icon`
+- `ThemeManager` **perists** the theme information in **`UserDefaults`** and it's synced as soon as user taps the `switch` control in settings
+- The effect of the theme chnage is immediate and done via shared application delegate
+
+  
 ## Localisation
 > Localization can be done via localized strings loading and enum `StringKeys` based mechanism to access strings used in the app. Refer to `Localization` folder and the usage of it.
 
 ## Accessbility
-> Custom Accessbility is being attached to custom UI components and computed accessbility labels, hints and traits are attached where necessary. This is done by transformers and accessbility configuration is passed via presentation items and then eventually to the view it binds to.
+> Custom Accessbility is being attached to custom UI components and computed accessibility labels, hints and traits are attached where necessary. This is done by transformers and accessbility configuration is passed via presentation items and then eventually to the view it binds to.
 
 
