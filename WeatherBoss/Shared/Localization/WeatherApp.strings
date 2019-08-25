@@ -1,0 +1,28 @@
+/* 
+  WeatherApp.strings
+  WeatherBoss
+
+  Created by BISWAS, Arinjoy on 25/8/19.
+  Copyright © 2019 ArinAppy. All rights reserved.
+*/
+
+"home.tab.name" = "Weather";
+"settings.tab.name" = "Settings";
+
+"weather.detail.temp.unit" = "°C";
+"weather.detail.minTemp.prefix" = "Min";
+"weather.detail.maxTemp.prefix" = "Max";
+
+"weather.detail.humidity.unit" = "% hpa";
+"weather.detail.humidity.prefix" = "Humidity";
+"weather.detail.windSpeed.unit" = "m/s";
+"weather.detail.windSpeed.prefix" = "Wind speed";
+
+"settings.heading.appearence" = "Apperance";
+"settings.heading.appInfo" = "App Info";
+"settings.list.item.darkMode" = "Dark mode";
+"settings.list.item.version" = "Version";
+
+"error.generic.alert.title" = "Oops. Something wrong.";
+"error.generic.alert.message" = "There are some technical difficulties. Please try again.";
+"error.generic.alert.dismiss" = "OK";

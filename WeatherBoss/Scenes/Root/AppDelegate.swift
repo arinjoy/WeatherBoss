@@ -31,13 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         settingsTabNavigationControlller = UINavigationController(rootViewController: SettingsViewController())
         
         weatherListTabNavigationController?.tabBarItem = UITabBarItem(
-            title: "Weather",
+            title: StringKeys.WeatherApp.homeTabName.localized(),
             image: Theme.Icon.weather.icon,
             selectedImage: Theme.Icon.weatherFilled.icon
         )
         
         settingsTabNavigationControlller?.tabBarItem = UITabBarItem(
-            title: "Settings",
+            title: StringKeys.WeatherApp.settingsTabName.localized(),
             image: Theme.Icon.settings.icon,
             selectedImage: Theme.Icon.settingsFilled.icon
         )

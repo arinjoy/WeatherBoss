@@ -23,26 +23,11 @@ struct Shadow {
     /// The x/y offset for the shadow
     let offset: CGSize
     
-    /// Optional shadow path
-    let path: CGPath?
-    
-    init(color: UIColor, opacity: CGFloat, blur: CGFloat, offset: CGSize, path: CGPath? = nil) {
+    init(color: UIColor, opacity: CGFloat, blur: CGFloat, offset: CGSize) {
         self.color = color
         self.opacity = opacity
         self.blur = blur
         self.offset = offset
-        self.path = path
-    }
-    
-    /// Will return the shadow as a `NSShadow` object
-    ///
-    /// - Returns: NSShadow
-    func toNSShadow() -> NSShadow {
-        let shadow = NSShadow()
-        shadow.shadowColor = color.withAlphaComponent(opacity)
-        shadow.shadowOffset = offset
-        shadow.shadowBlurRadius = blur
-        return shadow
     }
     
     /// Will apply the shadow to the given view's layer
@@ -53,9 +38,6 @@ struct Shadow {
         view.layer.shadowColor = color.cgColor
         view.layer.shadowOpacity = Float(opacity)
         view.layer.shadowRadius = blur
-        if let path = path {
-            view.layer.shadowPath = path
-        }
     }
 }
 

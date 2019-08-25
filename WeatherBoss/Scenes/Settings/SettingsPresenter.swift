@@ -22,7 +22,7 @@ final class SettingsPresenter: SettingsPresenting {
     // MARK: - SettingsPresenting
     
     func viewDidBecomeReady() {
-        display?.setTitle("Settings")
+        display?.setTitle(StringKeys.WeatherApp.settingsTabName.localized())
         
         let dataSource = buildSettingsDataSource()
         display?.setSettingsDataSource(dataSource)
@@ -33,24 +33,30 @@ final class SettingsPresenter: SettingsPresenting {
     private func buildSettingsDataSource() -> SettingsDataSource {
         
         let isCurrentyInDarkTheme = Theme.current == .dark
-        
         let themeChangeItem = SettingsCellPresentationItem(
-            title: "Dark mode",
+            title: StringKeys.WeatherApp.settingsDarkMode.localized(),
             showSwitchControl: true,
             isSwitchOn: isCurrentyInDarkTheme,
-            switchAction: themeChangeSwitchAction())
-        let displayAppearenceSection = DataSection<SettingsCellPresentationItem>(items: [themeChangeItem],
-                                                                                 headerTitle: "Appearance")
+            switchAction: themeChangeSwitchAction()
+        )
+        let displayAppearenceSection = DataSection<SettingsCellPresentationItem>(
+            items: [themeChangeItem],
+            headerTitle: StringKeys.WeatherApp.settingsAppearenceHeading.localized()
+        )
         
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         let appVersionItem = SettingsCellPresentationItem(
-            title: "Version",
-            subtitle: appVersion)
-        let appInfoSection = DataSection<SettingsCellPresentationItem>(items: [appVersionItem],
-                                                                       headerTitle: "App Info")
+            title: StringKeys.WeatherApp.settingsVersion.localized(),
+            subtitle: appVersion
+        )
+        let appInfoSection = DataSection<SettingsCellPresentationItem>(
+            items: [appVersionItem],
+            headerTitle: StringKeys.WeatherApp.settingsAppInfoHeading.localized())
         
-        return DataSource<DataSection<SettingsCellPresentationItem>>(sections: [displayAppearenceSection,
-                                                                                appInfoSection])
+        return DataSource<DataSection<SettingsCellPresentationItem>>(
+            sections: [displayAppearenceSection,
+                       appInfoSection]
+        )
     }
     
     /// Returns a closure that executes the relevant theme change action based on the ON/OFF state of a switch control

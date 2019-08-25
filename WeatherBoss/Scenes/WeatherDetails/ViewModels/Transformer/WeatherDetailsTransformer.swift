@@ -39,19 +39,19 @@ struct WeatherDetailsTransformer: DataTransforming {
     
     private func temperatureString(_ temperature: Double) -> String {
         var temrperatureString = formatter?.string(from: NSNumber(value: temperature)) ?? ""
-        temrperatureString += " °C"
+        temrperatureString += " " + StringKeys.WeatherApp.temperatureUnit.localized()
         return temrperatureString
     }
     
     private func windSpeedString(_ windSpeed: Double) -> String {
         var windSpeedString = formatter?.string(from: NSNumber(value: windSpeed)) ?? ""
-        windSpeedString += " m/s"
+        windSpeedString += " " + StringKeys.WeatherApp.windSpeedUnit.localized()
         return windSpeedString
     }
     
     private func humidityString(_ humidity: Double) -> String {
         var humidityString = formatter?.string(from: NSNumber(value: humidity)) ?? ""
-        humidityString += "% hpa"
+        humidityString += StringKeys.WeatherApp.humidityUnit.localized()
         return humidityString
     }
 }

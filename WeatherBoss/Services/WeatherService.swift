@@ -10,6 +10,7 @@ import Alamofire
 import ObjectMapper
 import RxSwift
 
+/// Weather Service reponsible for fething weather data
 final class WeatherService {
     
     /// A low level Api client that provides URL request to get weather response
@@ -19,6 +20,7 @@ final class WeatherService {
         self.apiClient = WeatherApiClient()
     }
     
+    /// Fetches weather for cities and reponds via Observable
     func getCurrentWeather(forCities cityIds: [String]) -> Observable<[CityWeather]> {
         return Observable.create { [weak self] observer -> Disposable in
             self?.apiClient.fetchWeatherForCitiesRequest(forCityIds: cityIds)

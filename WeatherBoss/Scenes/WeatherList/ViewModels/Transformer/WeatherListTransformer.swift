@@ -24,7 +24,7 @@ struct WeatherListTransformer: DataTransforming {
         let presentationItems: [WeatherSummaryPresentationItem] = input.map { item  in
             
             var temrperatureString = formatter?.string(from: NSNumber(value: item.temperature)) ?? ""
-            temrperatureString += " °C" // TODO: Can be defined in constant
+            temrperatureString += " " + StringKeys.WeatherApp.temperatureUnit.localized()
             
             return WeatherSummaryPresentationItem(
                 cityName: item.cityName,

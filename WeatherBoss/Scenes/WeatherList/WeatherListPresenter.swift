@@ -49,9 +49,7 @@ final class WeatherListPresenter: WeatherListPresenting {
     // MARK: - WeatherListPresenting
     
     func viewDidBecomeReady() {
-        
-        // TODO: Load from String keys / localized file
-        display?.setTitle("Weather")
+        display?.setTitle(StringKeys.WeatherApp.homeTabName.localized())
     }
     
     func loadCurrentWeatherOfCities(isRereshingNeeded: Bool) {
@@ -80,9 +78,9 @@ final class WeatherListPresenter: WeatherListPresenting {
                 
                 // TODO: Detect error code and customise accordingly
                 self?.display?.showError(
-                    title: "Oops. Something wrong",
-                    message: "There are some technical difficulties. Please try again.",
-                    dismissTitle: "OK")
+                    title: StringKeys.WeatherApp.genericErrorTitle.localized(),
+                    message: StringKeys.WeatherApp.genericErrorMessage.localized(),
+                    dismissTitle: StringKeys.WeatherApp.genericErrorDismiss.localized())
             })
             .disposed(by: disposeBag)
     }
