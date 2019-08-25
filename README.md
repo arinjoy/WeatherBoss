@@ -9,7 +9,7 @@ The weather data of Australian cities are fetched from [OpenWeather.org](https:/
 - Xcode **10.2.1**+ (required)
 - Clean `/DrivedData` folder if any
 - Run the Carthage update command to install the dependent libraries in the `Cartfile`
-  **`carthage update --platform iOS`** 
+ > **`carthage update --platform iOS`** 
 - Then clean and build the project in Xcode
 
 ## 3rd Party Libraries
@@ -37,7 +37,7 @@ The weather data of Australian cities are fetched from [OpenWeather.org](https:/
  - `Services`: API configs, Service class, ApiClient
  - `Scene`: Consists of view scene stack
  > The number of Scenes:
- - `Root`: App Delegate
+ - `Root`: App Delegate (the skeleton only)
  - `WeatherList`: The list of weather summary cells of cities in table view
  - `Settings`: The settings to change app theme and see version number
  - `WeatherDetails`: The weather deatils of a city
@@ -60,7 +60,7 @@ The weather data of Australian cities are fetched from [OpenWeather.org](https:/
   
 ## Theme Engine
 > A custom theme engine is used. It has `light` and `dark` style. 
-User is allowed to toggle between default `light mode` and `dark mode` through settings. Refer to the `ThemeManger` under `Theme` group to see how it is exposed and binds togther the current app theme and colours that are provided text labels and view backgrounds. 
+User is allowed to toggle between default `light mode` and `dark mode` through settings. Refer to the `ThemeManager` under `Theme` group to see how it is exposed and binds togther the current app theme and colours that are provided text labels and view backgrounds. 
 -  `enum` based mechanism is used for to access every instance of `UIColor` used in the app
 - `Theme+Icon` provides icons used in the app and all instances of `UIImage`s are accessed from `Theme.Icon`
 - `ThemeManager` **persists** the theme information in **`UserDefaults`** and it's synced as soon as user taps the `switch` control in settings
@@ -68,16 +68,19 @@ User is allowed to toggle between default `light mode` and `dark mode` through s
 
 ![](/Docs/app_theme_persistence.gif "")
 
+
 ## API Error Handling
-> Handling of the error is basic but provision has been made to custom mapping error using `WeatherFetchingError` enum and there are few cases which can be checked and show custom error messages. (Left note in the code in `WeatherListPresenter`)
+> Handling of the error is basic but provision has been made to custom mapping error using `WeatherFetchingError` enum and there are few cases which can be checked and show custom error messages (left note in the code in `WeatherListPresenter`).
 
 ![](/Docs/error_dark.png "")
 
+
 ## Localisation & Copies
-> Localization can be done via localized strings loading and enum `StringKeys` based mechanism to access strings copies used in the app. No copy is hardcoded in a class file. Refer to `Localization` folder and the usage of it.
+> Localization can be done via localized strings loading and enum `StringKeys` based mechanism to access string copies used in the app. No copy is hardcoded in a class file. Refer to `Localization` folder and the usage of it.
+
 
 ## Customised Accessibility
-> Custom Accessibility is being attached to custom UI components and computed accessibility labels, hints and traits are attached where necessary. This is done by transformers and accessibility configuration is passed via presentation items and then eventually to the view it binds to. For example, we can inspect the elements in `Accessibility Inspector`.
+> Custom Accessibility is being configured for custom UI components and computed accessibility labels, hints and traits are attached wherever necessary. This is done by transformers and accessibility configuration is passed via presentation items and then eventually to the view it binds to. We can inspect the elements in `Accessibility Inspector`.
 
 ![](/Docs/acc_list.png "")
 ![](/Docs/acc_temperature.png "")
