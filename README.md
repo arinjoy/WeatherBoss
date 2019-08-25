@@ -7,8 +7,10 @@ The weather data of Australian cities are fetched from [OpenWeather.org](https:/
 
 ### Installation: 
 - Xcode **10.2.1**+ (required)
-- Please Carthage command **`carthage update --platform iOS`** to install the dependent libraries in the `Cartfile`
-- Then compile the project in Xcode to run
+- Clean `/DrivedData` folder if any
+- Run the Carthage update command to install the dependent libraries in the `Cartfile`
+  **`carthage update --platform iOS`** 
+- Then clean and build the project in Xcode
 
 ## 3rd Party Libraries
  - **`RxSwift`** - to make `Reactive` binding of API call and response 😇
