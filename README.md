@@ -4,8 +4,8 @@ A weather app made with love to demonstrate clean architecture, code organisatio
 The weather data of Australian cities are fetched from [OpenWeather.org](https://openweathermap.org/current). Please create a free API-KEY from the website if needed.
 
 ### Installation: 
-- Xcode 10.2.1+ (required)
-- Pleae Carthage command `Carthage update --platform iOS` to install the dependent librabries in the `Cartfile`
+- Xcode **10.2.1**+ (required)
+- Pleae Carthage command **`carthage update --platform iOS`** to install the dependent librabries in the `Cartfile`
 - Then compile the Xcode
 
 
@@ -31,12 +31,19 @@ The weather data of Australian cities are fetched from [OpenWeather.org](https:/
  - `Settings`: The settings to change app theme and see version number
  - `WeatherDetails`: The weather deatils of a city
  > Breakdown of each `Scene` stack:
-  - ViewController
-  - Presenter
-  - Display
-  - Router
-  - UIComponents: Custom child views
-  - ViewModels: `Transformer` and `PresentationItem`
-  - Transformer: Helper that converts a domain model to presentation item or view model with necessary formatting and style if needed
-  - PresentationItem: aka. view model that is used to configure views with data (and potentially style)
+  - `ViewController`
+  - `Presenter`
+  - `Display`
+  - `Router`
+  - `UIComponents`: Custom child views
+  - `ViewModels`: `Transformer`s and `PresentationItem`s
+  - `Transformer`: Helper that converts a domain model to presentation item or view model with necessary formatting and style if needed
+  - `PresentationItem`: aka. view model that is used to configure views with data (and potentially style)
+  
+## Localisation
+> Localization can be done via localized strings loading and enum `StringKeys` based mechanism to access strings used in the app. Refer to `Localization` folder and the usage of it.
+
+## Accessbility
+> Custom Accessbility is being attached to custom UI components and computed accessbility labels, hints and traits are attached where necessary. This is done by transformers and accessbility configuration is passed via presentation items and then eventually to the view it binds to.
+
 
