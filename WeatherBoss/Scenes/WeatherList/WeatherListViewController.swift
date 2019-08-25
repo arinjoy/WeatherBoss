@@ -44,19 +44,20 @@ final class WeatherListViewController: UIViewController {
         applyLatestThemeStyle()
         
         presenter.viewDidBecomeReady()
-        presenter.loadCurrentWeatherOfCities()
+        presenter.loadCurrentWeatherOfCities(isRereshingNeeded: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         applyLatestThemeStyle()
+        presenter.loadCurrentWeatherOfCities(isRereshingNeeded: false)
     }
     
     // MARK: - Private Helpers
     
     @objc private func refreshWeatherData() {
-        presenter.loadCurrentWeatherOfCities()
+        presenter.loadCurrentWeatherOfCities(isRereshingNeeded: true)
     }
     
     private func configureTableView() {
@@ -108,9 +109,11 @@ extension WeatherListViewController: WeatherListDisplay {
     }
     
     func showError(title: String, message: String, dismissTitle: String) {
-        let alertController = UIAlertController(title: title,
-                                                message: message,
-                                                preferredStyle: UIAlertController.Style.alert)
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertController.Style.alert)
+        
         alertController.addAction(
             UIAlertAction(title: dismissTitle, style: .cancel))
         

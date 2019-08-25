@@ -15,13 +15,11 @@ final class WeatherSummaryCell: UITableViewCell {
     
     private let containerCardView: UIView = {
         let view = UIView()
-        view.backgroundColor = Theme.current.backgroundColor
         return view
     }()
     
     private let cityNameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Theme.current.titleTextColor
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textAlignment = .left
         return label
@@ -30,7 +28,6 @@ final class WeatherSummaryCell: UITableViewCell {
     
     private let temperatureLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Theme.current.subtitleTextColor
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textAlignment = .right
         return label
@@ -42,9 +39,7 @@ final class WeatherSummaryCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.selectionStyle = UITableViewCell.SelectionStyle.none
-        contentView.backgroundColor = Theme.current.darkerBackgroundColor
         buildUIAndApplyConstraints()
-        applyContainerStyle()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -93,7 +88,17 @@ final class WeatherSummaryCell: UITableViewCell {
 extension WeatherSummaryCell {
     
     func configure(withPresentationItem item: WeatherSummaryPresentationItem) {
+        
         cityNameLabel.text = item.cityName
         temperatureLabel.text = item.currentTemperature
+    
+        // Note: Ideally colors can be passed via presentation items or view models
+        // or even text string, font & colour can be combined as NSAttributed string
+        cityNameLabel.textColor = Theme.current.titleTextColor
+        temperatureLabel.textColor = Theme.current.subtitleTextColor
+        
+        containerCardView.backgroundColor = Theme.current.backgroundColor
+        contentView.backgroundColor = Theme.current.darkerBackgroundColor
+        applyContainerStyle()
     }
 }

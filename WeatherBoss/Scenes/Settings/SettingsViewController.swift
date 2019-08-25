@@ -32,7 +32,7 @@ class SettingsViewController: UIViewController {
         presenter = SettingsPresenter()
         
         // Injecting display weakly to the presenting instance
-        // TODO: Can be done via 3rd party Dependency Injection framework like Swinject and syntax could be simplified
+        // Note: Can be done via 3rd party Dependency Injection framework like Swinject and syntax could be simplified
         (presenter as? SettingsPresenter)?.display = self
         
         configureTableView()

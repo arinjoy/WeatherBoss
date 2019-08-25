@@ -15,7 +15,9 @@ protocol WeatherListPresenting: class {
     func viewDidBecomeReady()
     
     /// Will load current weather status for a list of given cities
-    func loadCurrentWeatherOfCities()
+    ///
+    /// - Parameter isRereshingNeeded: Whther data regreshing from API is needed
+    func loadCurrentWeatherOfCities(isRereshingNeeded: Bool)
     
     /// Called when user taps an item form the weather list
     func didTapCityWeather(at index: Int)
@@ -52,12 +54,21 @@ final class WeatherListPresenter: WeatherListPresenting {
         display?.setTitle("Weather")
     }
     
-    func loadCurrentWeatherOfCities() {
+    func loadCurrentWeatherOfCities(isRereshingNeeded: Bool) {
+        
+        // If refreshing is not needed, early exit with rendering based on preloaded data
+        guard isRereshingNeeded else {
+            if let weatherList = weatherListData {
+                handleUpdatingDataSource(weatherList)
+            }
+            return
+        }
+        
         display?.showLoadingIndicator()
         
         service.getCurrentWeather(forCities: Constant.CityIDs)
             .observeOn(MainScheduler.instance)
-            .delay(0.5, scheduler: MainScheduler.instance) // Add a slight delay to so asynchronous acitivity
+            .delay(0.5, scheduler: MainScheduler.instance) // Add a slight delay to show asynchronous acitivity
             .subscribe(onNext: { [weak self] result in
                 
                 self?.display?.hideLoadingIndicator()
