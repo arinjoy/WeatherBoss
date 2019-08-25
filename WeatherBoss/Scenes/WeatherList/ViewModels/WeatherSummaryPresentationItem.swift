@@ -15,4 +15,15 @@ struct WeatherSummaryPresentationItem {
     
     let cityName: String
     let currentTemperature: String
+    
+    var accessibility: AccessibilityConfiguration?
+    
+    init(cityName: String,
+         currentTemperature: String,
+         accessibility: AccessibilityConfiguration? = nil
+    ) {
+        self.cityName = cityName
+        self.currentTemperature = currentTemperature
+        self.accessibility = accessibility
+    }
 }

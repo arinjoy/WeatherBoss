@@ -34,6 +34,8 @@ extension StringKeys {
         case genericErrorMessage = "error.generic.alert.message"
         case genericErrorDismiss = "error.generic.alert.dismiss"
         
+        case weatherListItemAccessibilityHint = "weather.list.item.accessibility.hint"
+        
 
         // MARK: - LocalizationKeys
         

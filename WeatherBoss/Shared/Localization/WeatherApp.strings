@@ -26,3 +26,5 @@
 "error.generic.alert.title" = "Oops. Something wrong.";
 "error.generic.alert.message" = "There are some technical difficulties. Please try again.";
 "error.generic.alert.dismiss" = "OK";
+
+"weather.list.item.accessibility.hint" = "Double tap to see more weather details";

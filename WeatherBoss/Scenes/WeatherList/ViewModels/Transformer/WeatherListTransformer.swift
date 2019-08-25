@@ -26,9 +26,17 @@ struct WeatherListTransformer: DataTransforming {
             var temrperatureString = formatter?.string(from: NSNumber(value: item.temperature)) ?? ""
             temrperatureString += " " + StringKeys.WeatherApp.temperatureUnit.localized()
             
-            return WeatherSummaryPresentationItem(
+            var item = WeatherSummaryPresentationItem(
                 cityName: item.cityName,
                 currentTemperature: temrperatureString)
+            
+            item.accessibility = AccessibilityConfiguration(
+                identifier: "weatherApp.accessibilityId.weatherCell",
+                label: createCombinedAccessibilityLabel(from: [item.cityName, item.currentTemperature]),
+                hint: StringKeys.WeatherApp.weatherListItemAccessibilityHint.localized(),
+                traits: .button)
+            
+            return item
         }
         
         let dataSections = [DataSection<WeatherSummaryPresentationItem>(items: presentationItems)]
