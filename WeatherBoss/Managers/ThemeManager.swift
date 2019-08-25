@@ -12,6 +12,7 @@ import UIKit
 /// A singleton type of manager that handles the theme maintenance
 final class ThemeManager {
     
+    /// The key for saving the theme in UserDefaults
     private static let AppThemeKey = "AppThemeKey"
     
     static func currentAppTheme() -> Theme {
@@ -32,8 +33,10 @@ final class ThemeManager {
         
         sharedApplication.delegate?.window??.tintColor = theme.tintColor
         UINavigationBar.appearance().barStyle = theme.barStyle
+        UITabBar.appearance().barStyle = theme.barStyle
         
         UISwitch.appearance().thumbTintColor = theme.tintColor
-        UISwitch.appearance().onTintColor = theme.secondaryColor
+        UISwitch.appearance().onTintColor = theme.secondaryBackgroundColor
+    
     }
 }

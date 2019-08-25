@@ -23,11 +23,14 @@ class SettingsViewController: UIViewController {
     /// The table view's data source
     private var dataSource: SettingsDataSource = SettingsDataSource()
     
+    private let theme = ThemeManager.currentAppTheme()
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = ThemeManager.currentAppTheme().backgroundColor
         
         presenter = SettingsPresenter()
         
@@ -40,6 +43,12 @@ class SettingsViewController: UIViewController {
         presenter.viewDidBecomeReady()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //presenter.viewDidBecomeReady()
+    }
+    
     // MARK: - Private Helpers
     
     private func configureTableView() {
@@ -49,7 +58,8 @@ class SettingsViewController: UIViewController {
         
         tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
         tableView.dataSource = self
-        tableView.backgroundColor = .groupTableViewBackground
+        tableView.delegate = self
+        tableView.backgroundColor = theme.secondaryBackgroundColor
     }
 }
 
@@ -92,6 +102,15 @@ extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return dataSource.headerTitle(forSection: section)
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension SettingsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+       (view as? UITableViewHeaderFooterView)?.textLabel?.textColor = theme.subtitleTextColor
     }
 }
 

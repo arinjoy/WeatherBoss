@@ -55,12 +55,8 @@ final class SettingsPresenter: SettingsPresenting {
     
     /// A closure that executes the action, it takes the ON/OFF state of a switch control and returns nothing.
     private func themeChangeSwitchAction() -> SwitchAction {
-        return { [weak self] (isOn: Bool) in
-            self?.applyAppTheme(isOn ? .dark : .light)
+        return { (isOn: Bool) in
+            ThemeManager.applyTheme(isOn ? .dark : .light)
         }
-    }
-    
-    private func applyAppTheme(_ theme: Theme) {
-        ThemeManager.applyTheme(theme)
     }
 }

@@ -19,7 +19,7 @@ enum Theme: Int {
         case .light:
             return UIColor(red: 58/255.0, green: 141/255.0, blue: 123/255.0, alpha: 1.0) // light teal
         case .dark:
-            return UIColor(red: 228/255.0, green: 71/255.0, blue: 41/255.0, alpha: 1.0)  // dark orange
+            return UIColor(red: 234/255.0, green: 109/255.0, blue: 87/255.0, alpha: 1.0)  // dark orange
         }
     }
     
@@ -28,16 +28,16 @@ enum Theme: Int {
         case .light:
             return .white
         case .dark:
-            return .gray
+            return UIColor(red: 90/255.0, green: 74/255.0, blue: 71/255.0, alpha: 1.0) // orangish gray
         }
     }
     
-    var secondaryColor: UIColor {
+    var secondaryBackgroundColor: UIColor {
         switch self {
         case .light:
             return .groupTableViewBackground
         case .dark:
-            return .lightGray
+            return UIColor(red: 103/255.0, green: 87/255.0, blue: 84/255.0, alpha: 1.0)
         }
     }
     
