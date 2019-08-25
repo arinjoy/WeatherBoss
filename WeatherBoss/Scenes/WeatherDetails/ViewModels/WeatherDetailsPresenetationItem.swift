@@ -22,9 +22,19 @@ struct WeatherDetailsPresentationItem {
     let maxTemperature: String
     let maxTemperatureIcon: UIImage?
     
+    let humidity: String
+    let humidityIcon: UIImage?
+    
     let windSpeed: String
     let windSpeedIcon: UIImage?
     
-    let humidity: String
-    let humidityIcon: UIImage?
+    struct Accessibility {
+        let currentTemperatureAccessibility: AccessibilityConfiguration
+        let minTemperatureAccessibility: AccessibilityConfiguration
+        let maxTemperatureAccessibility: AccessibilityConfiguration
+        let humidityAccessibility: AccessibilityConfiguration
+        let windSpeedAccessibility: AccessibilityConfiguration
+    }
+    
+    var accessibility: Accessibility?
 }

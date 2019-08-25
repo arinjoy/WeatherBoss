@@ -69,6 +69,13 @@ final class WeatherDetailView: UIView {
         return label
     }()
     
+    /// The reference to the wrapper stakc view to attach parent container accessbility
+    private var currentTemperatureStackView: UIStackView = UIStackView()
+    private var minTemperatureStackView: UIStackView = UIStackView()
+    private var maxTemperatureStackView: UIStackView = UIStackView()
+    private var humidityStackView: UIStackView = UIStackView()
+    private var windSpeedStackView: UIStackView = UIStackView()
+    
     private let maxTemperatureLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
@@ -139,41 +146,42 @@ final class WeatherDetailView: UIView {
         topStackView.distribution = .fill
         topStackView.spacing = 10
         
-        let mainTemperatureStackView = UIStackView(arrangedSubviews: [temperatureIcon,
-                                                                      temperatureLabel])
-        mainTemperatureStackView.axis = .horizontal
-        mainTemperatureStackView.spacing = 20
+        for view in [temperatureIcon, temperatureLabel] {
+            currentTemperatureStackView.addArrangedSubview(view)
+        }
+        currentTemperatureStackView.axis = .horizontal
+        currentTemperatureStackView.spacing = 20
         
-        let minTemperatureStackView = UIStackView(arrangedSubviews: [minTemperatureIcon,
-                                                                     minTemperaturePrefixLabel,
-                                                                     minTemperatureLabel])
+        for view in [minTemperatureIcon, minTemperaturePrefixLabel, minTemperatureLabel] {
+            minTemperatureStackView.addArrangedSubview(view)
+        }
         minTemperatureStackView.axis = .horizontal
         minTemperatureStackView.spacing = 20
         
-        let maxTemperatureStackView = UIStackView(arrangedSubviews: [maxTemperatureIcon,
-                                                                     maxTemperaturePrefixLabel,
-                                                                     maxTemperatureLabel])
+        for view in [maxTemperatureIcon, maxTemperaturePrefixLabel, maxTemperatureLabel] {
+            maxTemperatureStackView.addArrangedSubview(view)
+        }
         maxTemperatureStackView.axis = .horizontal
         maxTemperatureStackView.spacing = 20
         
-        let humidityStackView = UIStackView(arrangedSubviews: [humidityIcon,
-                                                               humidityPrefixLabel,
-                                                               humidityLabel])
+        for view in [humidityIcon, humidityPrefixLabel, humidityLabel] {
+            humidityStackView.addArrangedSubview(view)
+        }
         humidityStackView.axis = .horizontal
         humidityStackView.spacing = 20
         
-        let windSpeedStackView = UIStackView(arrangedSubviews: [windSpeedIcon,
-                                                                windSpeedPrefixLabel,
-                                                                windSpeedLabel])
+        for view in [windSpeedIcon, windSpeedPrefixLabel, windSpeedLabel] {
+            windSpeedStackView.addArrangedSubview(view)
+        }
         windSpeedStackView.axis = .horizontal
         windSpeedStackView.spacing = 20
         
         let padderView = UIView()
         
-        let bottomStackView = UIStackView(arrangedSubviews: [mainTemperatureStackView,
+        let bottomStackView = UIStackView(arrangedSubviews: [currentTemperatureStackView,
                                                              minTemperatureStackView,
                                                              maxTemperatureStackView,
-                                                             padderView,
+                                                             UIView(),
                                                              humidityStackView,
                                                              windSpeedStackView])
         bottomStackView.axis = .vertical
@@ -242,6 +250,8 @@ extension WeatherDetailView {
         windSpeedIcon.image = item.windSpeedIcon
         
         applyLatestThemeColor()
+        
+        applyAccessbility(item.accessibility)
     }
     
     func applyLatestThemeColor() {
@@ -262,5 +272,22 @@ extension WeatherDetailView {
         
         windSpeedPrefixLabel.textColor = Theme.current.titleTextColor
         windSpeedLabel.textColor = Theme.current.subtitleTextColor
+    }
+    
+    private func applyAccessbility(_ accessibility: WeatherDetailsPresentationItem.Accessibility?) {
+        currentTemperatureStackView.isAccessibilityElement = true
+        accessibility?.currentTemperatureAccessibility.apply(to: currentTemperatureStackView)
+        
+        minTemperatureStackView.isAccessibilityElement = true
+        accessibility?.minTemperatureAccessibility.apply(to: minTemperatureStackView)
+        
+        maxTemperatureStackView.isAccessibilityElement = true
+        accessibility?.maxTemperatureAccessibility.apply(to: maxTemperatureStackView)
+        
+        humidityStackView.isAccessibilityElement = true
+        accessibility?.humidityAccessibility.apply(to: humidityStackView)
+        
+        windSpeedStackView.isAccessibilityElement = true
+        accessibility?.windSpeedAccessibility.apply(to: windSpeedStackView)
     }
 }

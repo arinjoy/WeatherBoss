@@ -101,6 +101,7 @@ extension WeatherSummaryCell {
         contentView.backgroundColor = Theme.current.darkerBackgroundColor
         applyContainerStyle()
         
+        contentView.isAccessibilityElement = true
         item.accessibility?.apply(to: contentView)
     }
 }

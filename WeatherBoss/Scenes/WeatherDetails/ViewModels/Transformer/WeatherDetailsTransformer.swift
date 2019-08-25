@@ -21,7 +21,7 @@ struct WeatherDetailsTransformer: DataTransforming {
     }
     
     func transform(input: CityWeather) -> WeatherDetailsPresentationItem {
-        return WeatherDetailsPresentationItem(
+        var item = WeatherDetailsPresentationItem(
             cityName: input.cityName,
             shortDescription: input.shortDescription?.lowercased(),
             temperature: temperatureString(input.temperature),
@@ -30,11 +30,15 @@ struct WeatherDetailsTransformer: DataTransforming {
             minTemperatureIcon: Theme.Icon.minTemp.icon,
             maxTemperature: temperatureString(input.maxTemperature),
             maxTemperatureIcon: Theme.Icon.maxTemp.icon,
+            humidity: humidityString(input.humidity),
+            humidityIcon: Theme.Icon.cloudHumid.icon,
             windSpeed: windSpeedString(input.windSpeed),
             windSpeedIcon: Theme.Icon.wind.icon,
-            humidity: humidityString(input.humidity),
-            humidityIcon: Theme.Icon.cloudHumid.icon
+            accessibility: nil
         )
+        item.accessibility = itemAccessbility(input)
+        
+        return item
     }
     
     private func temperatureString(_ temperature: Double) -> String {
@@ -51,7 +55,42 @@ struct WeatherDetailsTransformer: DataTransforming {
     
     private func humidityString(_ humidity: Double) -> String {
         var humidityString = formatter?.string(from: NSNumber(value: humidity)) ?? ""
-        humidityString += StringKeys.WeatherApp.humidityUnit.localized()
+        humidityString += "% " + StringKeys.WeatherApp.humidityUnit.localized()
         return humidityString
+    }
+    
+    private func itemAccessbility(_ input: CityWeather) -> WeatherDetailsPresentationItem.Accessibility {
+        return WeatherDetailsPresentationItem.Accessibility(
+            currentTemperatureAccessibility: AccessibilityConfiguration(
+                identifier: "accessibilityId.weatherDetails.currentTemp",
+                label: createCombinedAccessibilityLabel(
+                    from: ["Current temperature", temperatureString(input.temperature)]
+                )
+            ),
+            minTemperatureAccessibility: AccessibilityConfiguration(
+                identifier: "accessibilityId.weatherDetails.minTemp",
+                label: createCombinedAccessibilityLabel(
+                    from: ["Minimum temperature", temperatureString(input.minTemperature)]
+                )
+            ),
+            maxTemperatureAccessibility: AccessibilityConfiguration(
+                identifier: "accessibilityId.weatherDetails.maxTemp",
+                label: createCombinedAccessibilityLabel(
+                    from: ["Maximum temperature", temperatureString(input.maxTemperature)]
+                )
+            ),
+            humidityAccessibility: AccessibilityConfiguration(
+                identifier: "accessibilityId.weatherDetails.humidity",
+                label: createCombinedAccessibilityLabel(
+                    from: [StringKeys.WeatherApp.humidityPrefix.localized(), humidityString(input.humidity)]
+                )
+            ),
+            windSpeedAccessibility: AccessibilityConfiguration(
+                identifier: "accessibilityId.weatherDetails.windSpeed",
+                label: createCombinedAccessibilityLabel(
+                    from: [StringKeys.WeatherApp.windSpeedPreix.localized(), windSpeedString(input.windSpeed)]
+                )
+            )
+        )
     }
 }

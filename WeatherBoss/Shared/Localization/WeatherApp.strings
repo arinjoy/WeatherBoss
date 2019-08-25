@@ -13,7 +13,7 @@
 "weather.detail.minTemp.prefix" = "Min";
 "weather.detail.maxTemp.prefix" = "Max";
 
-"weather.detail.humidity.unit" = "% hpa";
+"weather.detail.humidity.unit" = "hpa";
 "weather.detail.humidity.prefix" = "Humidity";
 "weather.detail.windSpeed.unit" = "m/s";
 "weather.detail.windSpeed.prefix" = "Wind speed";
