@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             selectedImage: UIImage(named: "weather-icon-filled")
         )
         
-        // TODO: change to Settings icon later
+        // TODO: change to Settings icon later. For now use system's `More`
         settingsTabNavigationControlller?.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.more, tag: 1)
         
         tabBarController.viewControllers = [weatherListTabNavigationController, settingsTabNavigationControlller] as? [UIViewController]
@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Private Helpers
     
     private func customiseAppTheme() {
-        self.window?.tintColor = Theme.Color.teal
+        ThemeManager.applyTheme(ThemeManager.currentAppTheme())
     }
 }
 

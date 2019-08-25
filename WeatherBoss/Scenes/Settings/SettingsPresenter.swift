@@ -19,7 +19,6 @@ final class SettingsPresenter: SettingsPresenting {
     /// The front-facing view that conforms to the `SettingsDisplay` protocol
     weak var display: SettingsDisplay?
     
-    
     // MARK: - SettingsPresenting
     
     func viewDidBecomeReady() {
@@ -33,20 +32,35 @@ final class SettingsPresenter: SettingsPresenting {
     
     private func buildSettingsDataSource() -> SettingsDataSource {
         
-        // TODO: check Theme Manager Settings
-        let themeChangeItem = SettingsCellPresentationItem(title: "Dark mode",
-                                                           showSwitchControl: true,
-                                                           switchAction: nil)
+        let isCurrentyInDarkTheme = ThemeManager.currentAppTheme() == .dark
+        
+        let themeChangeItem = SettingsCellPresentationItem(
+            title: "Dark mode",
+            showSwitchControl: true,
+            isSwitchOn: isCurrentyInDarkTheme,
+            switchAction: themeChangeSwitchAction())
         let displayAppearenceSection = DataSection<SettingsCellPresentationItem>(items: [themeChangeItem],
                                                                                  headerTitle: "Appearance")
         
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
-        let appVersionItem = SettingsCellPresentationItem(title: "Version",
-                                                          subtitle: appVersion)
+        let appVersionItem = SettingsCellPresentationItem(
+            title: "Version",
+            subtitle: appVersion)
         let appInfoSection = DataSection<SettingsCellPresentationItem>(items: [appVersionItem],
                                                                        headerTitle: "App Info")
         
         return DataSource<DataSection<SettingsCellPresentationItem>>(sections: [displayAppearenceSection,
                                                                                 appInfoSection])
+    }
+    
+    /// A closure that executes the action, it takes the ON/OFF state of a switch control and returns nothing.
+    private func themeChangeSwitchAction() -> SwitchAction {
+        return { [weak self] (isOn: Bool) in
+            self?.applyAppTheme(isOn ? .dark : .light)
+        }
+    }
+    
+    private func applyAppTheme(_ theme: Theme) {
+        ThemeManager.applyTheme(theme)
     }
 }

@@ -47,6 +47,7 @@
 		FE8A7E982311EC1E003EDA3D /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E972311EC1E003EDA3D /* SettingsCell.swift */; };
 		FE8A7E9A2311F20F003EDA3D /* SettingsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E992311F20F003EDA3D /* SettingsDisplay.swift */; };
 		FE8A7E9C2311F2C8003EDA3D /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E9B2311F2C8003EDA3D /* SettingsPresenter.swift */; };
+		FE8A7E9F23120D0A003EDA3D /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E9E23120D0A003EDA3D /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		FE8A7E972311EC1E003EDA3D /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		FE8A7E992311F20F003EDA3D /* SettingsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDisplay.swift; sourceTree = "<group>"; };
 		FE8A7E9B2311F2C8003EDA3D /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		FE8A7E9E23120D0A003EDA3D /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		FE226A85230F494600DA538E /* WeatherBoss */ = {
 			isa = PBXGroup;
 			children = (
+				FE8A7EA023120EC1003EDA3D /* Managers */,
 				FE3879AD2310B69100EEBA6F /* Utils */,
 				FE53B2B8230FB9E700224258 /* Models */,
 				FE53B2B4230FB6F000224258 /* Services */,
@@ -383,6 +386,14 @@
 			path = UIComponents;
 			sourceTree = "<group>";
 		};
+		FE8A7EA023120EC1003EDA3D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FE8A7E9E23120D0A003EDA3D /* ThemeManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -508,6 +519,7 @@
 				FE8A7E8C23112E30003EDA3D /* WeatherDetailsPresenter.swift in Sources */,
 				FE8A7E8A23112DD5003EDA3D /* WeatherDetailsDisplay.swift in Sources */,
 				FE53B2B7230FB73C00224258 /* WeatherService.swift in Sources */,
+				FE8A7E9F23120D0A003EDA3D /* ThemeManager.swift in Sources */,
 				FE8A7E732310ECE6003EDA3D /* WeatherSummaryCell.swift in Sources */,
 				FE53B2C4230FEF6A00224258 /* DomainMapping.swift in Sources */,
 				FE226A89230F494600DA538E /* WeatherListViewController.swift in Sources */,

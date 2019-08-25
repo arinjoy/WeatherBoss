@@ -56,6 +56,7 @@ class SettingsViewController: UIViewController {
 // MARK: - SettingsDisplay
 
 extension SettingsViewController: SettingsDisplay {
+    
     func setTitle(_ title: String) {
         self.title = title
     }
@@ -80,7 +81,6 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell") as? SettingsCell,
             let item = dataSource.item(atIndexPath: indexPath)
         else {
