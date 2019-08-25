@@ -1,16 +1,16 @@
 {
-    "images" : [
-        {
-            "idiom" : "universal",
-            "filename" : "weather-icon.pdf"
-        }
-    ],
-    "info" : {
-        "version" : 1,
-        "author" : "xcode"
-    },
-    "properties" : {
-        "template-rendering-intent" : "template",
-        "preserves-vector-representation" : true
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "wealther-icon.pdf"
     }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "template",
+    "preserves-vector-representation" : true
+  }
 }

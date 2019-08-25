@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.backgroundColor = .white
+        window?.backgroundColor = Theme.current.backgroundColor
         
         let tabBarController = UITabBarController()
         
@@ -36,10 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             selectedImage: UIImage(named: "weather-icon-filled")
         )
         
-        // TODO: change to Settings icon later. For now use system's `More`
-        settingsTabNavigationControlller?.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarItem.SystemItem.more, tag: 1)
+        settingsTabNavigationControlller?.tabBarItem = UITabBarItem(
+            title: "Settings",
+            image: UIImage(named: "settings-icon"),
+            selectedImage: UIImage(named: "settings-icon-filled")
+        )
         
-        tabBarController.viewControllers = [weatherListTabNavigationController, settingsTabNavigationControlller] as? [UIViewController]
+        tabBarController.viewControllers = [weatherListTabNavigationController,
+                                            settingsTabNavigationControlller] as? [UIViewController]
         
         ThemeManager.applyTheme(Theme.current)
         
