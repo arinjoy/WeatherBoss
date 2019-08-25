@@ -32,14 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         weatherListTabNavigationController?.tabBarItem = UITabBarItem(
             title: "Weather",
-            image: UIImage(named: "weather-icon"),
-            selectedImage: UIImage(named: "weather-icon-filled")
+            image: Theme.Icon.weather.icon,
+            selectedImage: Theme.Icon.weatherFilled.icon
         )
         
         settingsTabNavigationControlller?.tabBarItem = UITabBarItem(
             title: "Settings",
-            image: UIImage(named: "settings-icon"),
-            selectedImage: UIImage(named: "settings-icon-filled")
+            image: Theme.Icon.settings.icon,
+            selectedImage: Theme.Icon.settingsFilled.icon
         )
         
         tabBarController.viewControllers = [weatherListTabNavigationController,

@@ -49,6 +49,7 @@
 		FE8A7E9C2311F2C8003EDA3D /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E9B2311F2C8003EDA3D /* SettingsPresenter.swift */; };
 		FE8A7E9F23120D0A003EDA3D /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E9E23120D0A003EDA3D /* ThemeManager.swift */; };
 		FE8A7EA223125D1F003EDA3D /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7EA123125D1F003EDA3D /* ApiClient.swift */; };
+		FE8A7EA423128661003EDA3D /* Theme+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7EA323128661003EDA3D /* Theme+Icon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		FE8A7E9B2311F2C8003EDA3D /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		FE8A7E9E23120D0A003EDA3D /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		FE8A7EA123125D1F003EDA3D /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		FE8A7EA323128661003EDA3D /* Theme+Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Icon.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +387,7 @@
 			children = (
 				FE3879A72310B11A00EEBA6F /* Theme.swift */,
 				FE8A7E9E23120D0A003EDA3D /* ThemeManager.swift */,
+				FE8A7EA323128661003EDA3D /* Theme+Icon.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				FE3879BA2310C49E00EEBA6F /* WeatherListPresenter.swift in Sources */,
 				FE53B2C9230FF1F700224258 /* CityWeatherMapping.swift in Sources */,
 				FE8A7E9223113327003EDA3D /* WeatherDetailsTransformer.swift in Sources */,
+				FE8A7EA423128661003EDA3D /* Theme+Icon.swift in Sources */,
 				FE8A7E9C2311F2C8003EDA3D /* SettingsPresenter.swift in Sources */,
 				FE8A7EA223125D1F003EDA3D /* ApiClient.swift in Sources */,
 				FE226A87230F494600DA538E /* AppDelegate.swift in Sources */,

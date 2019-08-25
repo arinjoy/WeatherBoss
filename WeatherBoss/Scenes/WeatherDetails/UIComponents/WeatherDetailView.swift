@@ -228,19 +228,19 @@ extension WeatherDetailView {
         shortDescriptionLabel.text = item.shortDescription
         
         temperatureLabel.text = item.temperature
-        temperatureIcon.image = item.temperatureIcon?.withRenderingMode(.alwaysTemplate)
+        temperatureIcon.image = item.temperatureIcon
         
         minTemperatureLabel.text = item.minTemperature
-        minTemperatureIcon.image = item.minTemperatureIcon?.withRenderingMode(.alwaysTemplate)
+        minTemperatureIcon.image = item.minTemperatureIcon
         
         maxTemperatureLabel.text = item.maxTemperature
-        maxTemperatureIcon.image = item.maxTemperatureIcon?.withRenderingMode(.alwaysTemplate)
+        maxTemperatureIcon.image = item.maxTemperatureIcon
         
         humidityLabel.text = item.humidity
-        humidityIcon.image = item.humidityIcon?.withRenderingMode(.alwaysTemplate)
+        humidityIcon.image = item.humidityIcon
         
         windSpeedLabel.text = item.windSpeed
-        windSpeedIcon.image = item.windSpeedIcon?.withRenderingMode(.alwaysTemplate)
+        windSpeedIcon.image = item.windSpeedIcon
         
         applyLatestThemeColor()
     }

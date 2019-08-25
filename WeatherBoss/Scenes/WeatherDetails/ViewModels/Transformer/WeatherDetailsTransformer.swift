@@ -25,15 +25,15 @@ struct WeatherDetailsTransformer: DataTransforming {
             cityName: input.cityName,
             shortDescription: input.shortDescription?.lowercased(),
             temperature: temperatureString(input.temperature),
-            temperatureIcon: UIImage(named: "temperature-icon"),
+            temperatureIcon: Theme.Icon.thermoTemp.icon,
             minTemperature: temperatureString(input.minTemperature),
-            minTemperatureIcon:  UIImage(named: "min-temp-icon"),
+            minTemperatureIcon: Theme.Icon.minTemp.icon,
             maxTemperature: temperatureString(input.maxTemperature),
-            maxTemperatureIcon:  UIImage(named: "max-temp-icon"),
+            maxTemperatureIcon: Theme.Icon.maxTemp.icon,
             windSpeed: windSpeedString(input.windSpeed),
-            windSpeedIcon: UIImage(named: "wind-icon"),
+            windSpeedIcon: Theme.Icon.wind.icon,
             humidity: humidityString(input.humidity),
-            humidityIcon: UIImage(named: "cloud-humid-icon")
+            humidityIcon: Theme.Icon.cloudHumid.icon
         )
     }
     
