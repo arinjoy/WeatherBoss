@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>7FEE6529-554A-4592-BA56-45510C6749EF</key>
+		<key>3C45CA38-1A74-441B-9D73-ABBF060E87C0</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
 			<key>fileName</key>
-			<string>7FEE6529-554A-4592-BA56-45510C6749EF.xcactivitylog</string>
+			<string>3C45CA38-1A74-441B-9D73-ABBF060E87C0.xcactivitylog</string>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -24,13 +24,13 @@
 			<key>signature</key>
 			<string>WeatherBoss-gojljfhpmoebfsbgbwigmvbujkfd</string>
 			<key>timeStartedRecording</key>
-			<real>588417494.85040796</real>
+			<real>588434369.18926895</real>
 			<key>timeStoppedRecording</key>
-			<real>588417497.02629495</real>
+			<real>588434372.47793603</real>
 			<key>title</key>
 			<string>Build target WeatherBoss</string>
 			<key>uniqueIdentifier</key>
-			<string>7FEE6529-554A-4592-BA56-45510C6749EF</string>
+			<string>3C45CA38-1A74-441B-9D73-ABBF060E87C0</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>
