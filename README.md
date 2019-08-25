@@ -3,6 +3,11 @@ A weather app made with love to demonstrate clean architecture, code organisatio
 
 The weather data of Australian cities are fetched from [OpenWeather.org](https://openweathermap.org/current). Please create a free API-KEY from the website if needed.
 
+![](/Docs/list_light.png "") ![](/Docs/list_dark.png "")
+![](/Docs/detail_light.png "") ![](/Docs/detail_dark.png "")
+![](/Docs/settings_light.png "") ![](/Docs/settings_dark.png "")
+
+
 ### Installation: 
 - Xcode **10.2.1**+ (required)
 - Pleae Carthage command **`carthage update --platform iOS`** to install the dependent librabries in the `Cartfile`
