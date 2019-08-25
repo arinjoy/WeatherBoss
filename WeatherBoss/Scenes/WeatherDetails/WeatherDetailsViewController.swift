@@ -37,7 +37,6 @@ final class WeatherDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = Theme.current.backgroundColor
         
         presenter = WeatherDetailsPresenter()
 
@@ -47,7 +46,15 @@ final class WeatherDetailsViewController: UIViewController {
         (presenter as? WeatherDetailsPresenter)?.sceneModel = sceneModel
         
         buildUIAndApplyConstraints()
+        applyLatestThemeStyle()
         
+        presenter.viewDidBecomeReady()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        applyLatestThemeStyle()
         presenter.viewDidBecomeReady()
     }
     
@@ -62,6 +69,12 @@ final class WeatherDetailsViewController: UIViewController {
             make.leading.equalTo(view.snp.leading).offset(15)
             make.trailing.equalTo(view.snp.trailing).offset(-15)
         }
+    }
+    
+    private func applyLatestThemeStyle() {
+        navigationController?.navigationBar.barStyle = Theme.current.barStyle
+        navigationController?.tabBarController?.tabBar.barStyle = Theme.current.barStyle
+        view.backgroundColor = Theme.current.backgroundColor
     }
 }
 

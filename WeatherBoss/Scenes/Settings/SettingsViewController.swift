@@ -28,7 +28,6 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = Theme.current.backgroundColor
         
         presenter = SettingsPresenter()
         
@@ -38,13 +37,8 @@ class SettingsViewController: UIViewController {
         
         configureTableView()
         
+        applyLatestThemeStyle()
         presenter.viewDidBecomeReady()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //presenter.viewDidBecomeReady()
     }
     
     // MARK: - Private Helpers
@@ -57,6 +51,12 @@ class SettingsViewController: UIViewController {
         tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    private func applyLatestThemeStyle() {
+        navigationController?.navigationBar.barStyle = Theme.current.barStyle
+        navigationController?.tabBarController?.tabBar.barStyle = Theme.current.barStyle
+        view.backgroundColor = Theme.current.backgroundColor
         tableView.backgroundColor = Theme.current.secondaryBackgroundColor
     }
 }
@@ -72,6 +72,11 @@ extension SettingsViewController: SettingsDisplay {
     func setSettingsDataSource(_ dataSource: SettingsDataSource) {
         self.dataSource = dataSource
         tableView.reloadData()
+    }
+    
+    func reloadUIAfterThemeChange() {
+        applyLatestThemeStyle()
+        presenter.viewDidBecomeReady()
     }
 }
 

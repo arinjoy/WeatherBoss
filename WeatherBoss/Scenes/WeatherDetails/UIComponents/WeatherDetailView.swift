@@ -15,7 +15,6 @@ final class WeatherDetailView: UIView {
     
     private let shortDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Theme.current.subtitleTextColor
         label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -30,7 +29,6 @@ final class WeatherDetailView: UIView {
     
     private let temperatureLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Theme.current.titleTextColor
         label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         label.textAlignment = .right
         return label
@@ -44,7 +42,6 @@ final class WeatherDetailView: UIView {
     
     private let minTemperaturePrefixLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Theme.current.subtitleTextColor
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .left
         label.text = "Min"
@@ -53,7 +50,6 @@ final class WeatherDetailView: UIView {
     
     private let minTemperatureLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Theme.current.titleTextColor
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .right
         return label
@@ -67,7 +63,6 @@ final class WeatherDetailView: UIView {
     
     private let maxTemperaturePrefixLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Theme.current.subtitleTextColor
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .left
         label.text = "Max"
@@ -76,7 +71,6 @@ final class WeatherDetailView: UIView {
     
     private let maxTemperatureLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Theme.current.titleTextColor
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .right
         return label
@@ -90,7 +84,6 @@ final class WeatherDetailView: UIView {
     
     private let humidityPrefixLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Theme.current.subtitleTextColor
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .left
         label.text = "Humidity"
@@ -99,7 +92,6 @@ final class WeatherDetailView: UIView {
     
     private let humidityLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Theme.current.titleTextColor
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .right
         return label
@@ -113,7 +105,6 @@ final class WeatherDetailView: UIView {
     
     private let windSpeedPrefixLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Theme.current.subtitleTextColor
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .left
         label.text = "Wind speed"
@@ -122,7 +113,6 @@ final class WeatherDetailView: UIView {
     
     private let windSpeedLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Theme.current.titleTextColor
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .right
         return label
@@ -144,9 +134,6 @@ final class WeatherDetailView: UIView {
     // MARK: - Private Helpers
     
     private func buildUIAndApplyConstraints() {
-        
-        self.backgroundColor = Theme.current.backgroundColor
-        
         let topStackView = UIStackView(arrangedSubviews: [shortDescriptionLabel])
         topStackView.axis = .vertical
         topStackView.alignment = .leading
@@ -254,5 +241,27 @@ extension WeatherDetailView {
         
         windSpeedLabel.text = item.windSpeed
         windSpeedIcon.image = item.windSpeedIcon?.withRenderingMode(.alwaysTemplate)
+        
+        applyLatestThemeColor()
+    }
+    
+    func applyLatestThemeColor() {
+        self.backgroundColor = Theme.current.backgroundColor
+        
+        shortDescriptionLabel.textColor = Theme.current.subtitleTextColor
+        
+        temperatureLabel.textColor = Theme.current.titleTextColor
+        
+        minTemperaturePrefixLabel.textColor = Theme.current.subtitleTextColor
+        minTemperatureLabel.textColor = Theme.current.titleTextColor
+        
+        maxTemperaturePrefixLabel.textColor = Theme.current.subtitleTextColor
+        maxTemperatureLabel.textColor = Theme.current.titleTextColor
+        
+        humidityPrefixLabel.textColor = Theme.current.subtitleTextColor
+        humidityLabel.textColor = Theme.current.titleTextColor
+        
+        windSpeedPrefixLabel.textColor = Theme.current.subtitleTextColor
+        windSpeedLabel.textColor = Theme.current.titleTextColor
     }
 }

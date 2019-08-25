@@ -53,10 +53,15 @@ final class SettingsPresenter: SettingsPresenting {
                                                                                 appInfoSection])
     }
     
-    /// A closure that executes the action, it takes the ON/OFF state of a switch control and returns nothing.
+    /// Returns a closure that executes the relevant theme change action based on the ON/OFF state of a switch control
     private func themeChangeSwitchAction() -> SwitchAction {
-        return { (isOn: Bool) in
+        return { [weak self] (isOn: Bool) in
+            
+            // Communicate with underlying Theme engine manager to toggle theme state
             ThemeManager.applyTheme(isOn ? .dark : .light)
+            
+            // Asks the display to take immediate UI re-rendering tasks
+            self?.display?.reloadUIAfterThemeChange()
         }
     }
 }

@@ -21,4 +21,7 @@ protocol SettingsDisplay: class {
     ///
     /// - Parameter dataSource: The set of data to display (transformed view models)
     func setSettingsDataSource(_ dataSource: SettingsDataSource)
+    
+    /// Will ask the display to reload UI after theme change
+    func reloadUIAfterThemeChange()
 }

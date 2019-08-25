@@ -31,7 +31,6 @@ final class WeatherListViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = Theme.current.backgroundColor
         
         presenter = WeatherListPresenter()
         
@@ -42,8 +41,16 @@ final class WeatherListViewController: UIViewController {
         
         configureTableView()
         
+        applyLatestThemeStyle()
+        
         presenter.viewDidBecomeReady()
         presenter.loadCurrentWeatherOfCities()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        applyLatestThemeStyle()
     }
     
     // MARK: - Private Helpers
@@ -61,7 +68,6 @@ final class WeatherListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
         tableView.separatorStyle = .none
-        tableView.backgroundColor = Theme.current.backgroundColor
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -70,6 +76,13 @@ final class WeatherListViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshWeatherData), for: .valueChanged)
     }
     
+    private func applyLatestThemeStyle() {
+        navigationController?.navigationBar.barStyle = Theme.current.barStyle
+        navigationController?.tabBarController?.tabBar.barStyle = Theme.current.barStyle
+        view.backgroundColor = Theme.current.backgroundColor
+        tableView.backgroundColor = Theme.current.secondaryBackgroundColor
+        tableView.refreshControl?.tintColor = Theme.current.subtitleTextColor
+    }
 }
 
 // MARK: - WeatherListDisplay
