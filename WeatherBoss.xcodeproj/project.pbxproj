@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF8C316124583AC50024FA8E /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8C316024583AC50024FA8E /* UITableView+Extensions.swift */; };
+		AF8C316324583AF30024FA8E /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8C316224583AF30024FA8E /* ReusableView.swift */; };
+		AF8C316524583B0C0024FA8E /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8C316424583B0C0024FA8E /* NibLoadableView.swift */; };
 		FE226A87230F494600DA538E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE226A86230F494600DA538E /* AppDelegate.swift */; };
 		FE226A89230F494600DA538E /* WeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE226A88230F494600DA538E /* WeatherListViewController.swift */; };
 		FE226A8B230F494600DA538E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE226A8A230F494600DA538E /* SettingsViewController.swift */; };
@@ -57,6 +60,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF8C316024583AC50024FA8E /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		AF8C316224583AF30024FA8E /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		AF8C316424583B0C0024FA8E /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 		FE226A83230F494600DA538E /* WeatherBoss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherBoss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE226A86230F494600DA538E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE226A88230F494600DA538E /* WeatherListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListViewController.swift; sourceTree = "<group>"; };
@@ -335,6 +341,9 @@
 			isa = PBXGroup;
 			children = (
 				FE8A7E7B2310FFD2003EDA3D /* Shadow.swift */,
+				AF8C316024583AC50024FA8E /* UITableView+Extensions.swift */,
+				AF8C316224583AF30024FA8E /* ReusableView.swift */,
+				AF8C316424583B0C0024FA8E /* NibLoadableView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -534,6 +543,8 @@
 				FE8A7EA223125D1F003EDA3D /* ApiClient.swift in Sources */,
 				FE226A87230F494600DA538E /* AppDelegate.swift in Sources */,
 				FE3879A82310B11A00EEBA6F /* Theme.swift in Sources */,
+				AF8C316124583AC50024FA8E /* UITableView+Extensions.swift in Sources */,
+				AF8C316524583B0C0024FA8E /* NibLoadableView.swift in Sources */,
 				FE3879BD2310C92E00EEBA6F /* DataTransforming.swift in Sources */,
 				FE8A7EA723128CFF003EDA3D /* WeatherApp+StringKeys.swift in Sources */,
 				FE8A7E7C2310FFD2003EDA3D /* Shadow.swift in Sources */,
@@ -551,6 +562,7 @@
 				FE8A7E8A23112DD5003EDA3D /* WeatherDetailsDisplay.swift in Sources */,
 				FE8A7EAE2312B6D2003EDA3D /* AccessibilityConfiguration.swift in Sources */,
 				FE53B2B7230FB73C00224258 /* WeatherService.swift in Sources */,
+				AF8C316324583AF30024FA8E /* ReusableView.swift in Sources */,
 				FE8A7E9F23120D0A003EDA3D /* ThemeManager.swift in Sources */,
 				FE8A7E732310ECE6003EDA3D /* WeatherSummaryCell.swift in Sources */,
 				FE53B2C4230FEF6A00224258 /* DomainMapping.swift in Sources */,

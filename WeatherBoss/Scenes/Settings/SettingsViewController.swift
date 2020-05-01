@@ -48,7 +48,7 @@ class SettingsViewController: UIViewController {
         tableView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         self.view.addSubview(tableView)
         
-        tableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
+        tableView.register(SettingsCell.self)
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -94,11 +94,8 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell") as? SettingsCell,
-            let item = dataSource.item(atIndexPath: indexPath)
-        else {
-                return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as SettingsCell
+        guard let item = dataSource.item(atIndexPath: indexPath) else { return cell }
         cell.configure(withPresentationItem: item)
         return cell
     }
