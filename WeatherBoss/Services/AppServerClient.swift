@@ -10,54 +10,48 @@ import Alamofire
 import ObjectMapper
 
 final class WeatherService {
-    
     private enum Constant {
         static let serverPath: String = "https://api.openweathermap.org/data/2.5/group"
         static let apiKey: String = "a90804ee877a7f99ffe80dbbfd23695c"
         static let weatherUnit: String = "metric"
     }
-    
-    
-    func getWeatherForcast(forCities cities: [String: String]) -> () {
-        
+
+    func getWeatherForcast(forCities cities: [String: String]) {
         Alamofire.request(
             Constant.serverPath,
             method: HTTPMethod.get,
-            parameters: buildQueryParams(fromCities: cities))
+            parameters: buildQueryParams(fromCities: cities)
+        )
             .validate()
             .responseJSON { response in
                 switch response.result {
                 case .success:
-                    
-                    //to get JSON return value
+
+                    // To get JSON return value
                     guard let responseJSON = response.result.value as? [String: AnyObject],
-                        let weatherListJSONArray = responseJSON["list"] as? Array<[String: AnyObject]> else {
+                        let weatherListJSONArray = responseJSON["list"] as? [[String: AnyObject]] else {
                             // TODO:
                         return
                     }
-                    
+
                     let weathers: [CityWeather] = Mapper<CityWeatherData>()
                         .mapArray(JSONArray: weatherListJSONArray)
                         .map(CityWeatherMapping().mapToDomain)
-                        .compactMap{ $0 }
-                   
-                    
-                case .failure(_):
+                        .compactMap { $0 }
+
+                case .failure:
                     if let statusCode = response.response?.statusCode {
                         // TODO:
                     }
                 }
             }
     }
-    
+
     // MARK: - Private Helpers
-    
+
     private func buildQueryParams(fromCities cities: [String: String]) -> Parameters {
-        var cityIdList: [String] = []
-        for (_, item) in cities.enumerated() {
-            cityIdList.append(item.key)
-        }
-        
+        let cityIdList: [String] = cities.compactMap { $0.item.key }
+
         return [
             "id": cityIdList.joined(separator: ","),
             "units": Constant.weatherUnit,
