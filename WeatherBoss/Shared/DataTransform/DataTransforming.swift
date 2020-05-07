@@ -13,11 +13,10 @@ import Foundation
 protocol DataTransforming {
     associatedtype Input
     associatedtype Output
-    
+
     /// Will transform the given input into the associated output.
     ///
     /// - Parameter input: The domain model object to transform
     /// - Returns: The presentation item / view model object
     func transform(input: Input) -> Output
 }
-

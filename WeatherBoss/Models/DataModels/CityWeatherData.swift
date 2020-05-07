@@ -9,23 +9,21 @@
 import ObjectMapper
 
 class CityWeatherData: Mappable {
-    
     var cityId: Int?
     var cityName: String?
-    
+
     var shortDescription: String?
     var temperature: Double?
     var minTemperature: Double?
     var maxTemperature: Double?
     var humidity: Double?
     var windSpeed: Double?
-    
+
     // Additional weather info comes as array
     var weatherInfo: [WeatherInfo]?
-    
-    required init?(map: Map) {
-    }
-    
+
+    required init?(map: Map) {}
+
     func mapping(map: Map) {
         cityId <- map["id"]
         cityName <- map["name"]
@@ -39,13 +37,11 @@ class CityWeatherData: Mappable {
 }
 
 class WeatherInfo: Mappable {
-    
     // The short summary of the weather and cloudiness
     var summary: String?
-    
-    required init?(map: Map) {
-    }
-    
+
+    required init?(map: Map) {}
+
     func mapping(map: Map) {
         summary <- map["description"]
     }
