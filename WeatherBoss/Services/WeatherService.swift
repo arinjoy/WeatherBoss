@@ -12,14 +12,13 @@ import RxSwift
 
 /// Weather Service reponsible for fething weather data
 final class WeatherService {
-    
     /// A low level Api client that provides URL request to get weather response
     private var apiClient: WeatherApiClient
-    
+
     init() {
-        self.apiClient = WeatherApiClient()
+        apiClient = WeatherApiClient()
     }
-    
+
     /// Fetches weather for cities and reponds via Observable
     func getCurrentWeather(forCities cityIds: [String]) -> Observable<[CityWeather]> {
         return Observable.create { [weak self] observer -> Disposable in
@@ -28,22 +27,21 @@ final class WeatherService {
             .responseJSON { response in
                 switch response.result {
                 case .success:
-                    
+
                     guard let responseJSON = response.result.value as? [String: AnyObject],
-                        let weatherListJSONArray = responseJSON["list"] as? Array<[String: AnyObject]>
+                        let weatherListJSONArray = responseJSON["list"] as? [[String: AnyObject]]
                     else {
                         observer.onError(WeatherFetchingError.dataConversion)
                         return
                     }
-                    
+
                     let weatherList: [CityWeather] = Mapper<CityWeatherData>()
                         .mapArray(JSONArray: weatherListJSONArray)
-                        .map(CityWeatherMapping().mapToDomain)
-                        .compactMap{ $0 }
-                    
+                        .compactMap(CityWeatherMapping().mapToDomain)
+
                     observer.onNext(weatherList)
-                    
-                case .failure(let error):
+
+                case let .failure(error):
                     if let statusCode = response.response?.statusCode,
                         let expectedServerError = WeatherFetchingError(rawValue: statusCode) {
                         observer.onError(expectedServerError)

@@ -7,15 +7,14 @@
 //
 
 struct CityWeather {
-    
     let cityId: String
     let cityName: String
-    
+
     let temperature: Double
     let minTemperature: Double
     let maxTemperature: Double
     let humidity: Double
     let windSpeed: Double
-    
+
     let shortDescription: String?
 }

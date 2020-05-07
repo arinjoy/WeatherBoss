@@ -2,4 +2,4 @@ github "tristanhimmelman/AlamofireObjectMapper" ~> 5.2
 github "SnapKit/SnapKit" ~> 5.0.0
 github "ReactiveX/RxSwift" ~> 5.0
 github "pkluz/PKHUD" ~> 5.0
-
+github "SwiftLint/SwiftLint"

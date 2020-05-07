@@ -11,10 +11,9 @@ import Foundation
 /// `DomainMapping` conforming instances are responsible for mapping from a
 /// lower level `Data` model to a business/usecase level `Domain` model
 protocol DomainMapping {
-    
     associatedtype DomainObject
     associatedtype DataObject
-    
+
     /// Will map the given data object to the defined domain object output
     ///
     /// - Parameter dataObject: The data object to map

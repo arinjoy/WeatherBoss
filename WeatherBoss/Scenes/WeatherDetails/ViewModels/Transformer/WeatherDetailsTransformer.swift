@@ -9,17 +9,16 @@
 import UIKit
 
 struct WeatherDetailsTransformer: DataTransforming {
-    
     /// Number formatter helper
     private let formatter: NumberFormatter?
-    
+
     init() {
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 1
         formatter.maximumFractionDigits = 1
         self.formatter = formatter
     }
-    
+
     func transform(input: CityWeather) -> WeatherDetailsPresentationItem {
         var item = WeatherDetailsPresentationItem(
             cityName: input.cityName,
@@ -37,28 +36,28 @@ struct WeatherDetailsTransformer: DataTransforming {
             accessibility: nil
         )
         item.accessibility = itemAccessbility(input)
-        
+
         return item
     }
-    
+
     private func temperatureString(_ temperature: Double) -> String {
         var temrperatureString = formatter?.string(from: NSNumber(value: temperature)) ?? ""
         temrperatureString += " " + StringKeys.WeatherApp.temperatureUnit.localized()
         return temrperatureString
     }
-    
+
     private func windSpeedString(_ windSpeed: Double) -> String {
         var windSpeedString = formatter?.string(from: NSNumber(value: windSpeed)) ?? ""
         windSpeedString += " " + StringKeys.WeatherApp.windSpeedUnit.localized()
         return windSpeedString
     }
-    
+
     private func humidityString(_ humidity: Double) -> String {
         var humidityString = formatter?.string(from: NSNumber(value: humidity)) ?? ""
         humidityString += "% " + StringKeys.WeatherApp.humidityUnit.localized()
         return humidityString
     }
-    
+
     private func itemAccessbility(_ input: CityWeather) -> WeatherDetailsPresentationItem.Accessibility {
         return WeatherDetailsPresentationItem.Accessibility(
             currentTemperatureAccessibility: AccessibilityConfiguration(

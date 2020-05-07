@@ -9,19 +9,18 @@
 import UIKit
 
 enum Theme: Int {
-    
     /// A standard Apple style light theme with teal as tint
     case light
-    
+
     /// A custom brown/orangish darker theme orange as tint
     case dark
-    
+
     static var current: Theme {
         return ThemeManager.currentAppTheme()
     }
-    
+
     // MARK: - Colors
-    
+
     var tintColor: UIColor {
         switch self {
         case .light:
@@ -30,7 +29,7 @@ enum Theme: Int {
             return UIColor.colorFrom(red: 234, green: 109, blue: 87) // dark orange
         }
     }
-    
+
     var backgroundColor: UIColor {
         switch self {
         case .light:
@@ -39,7 +38,7 @@ enum Theme: Int {
             return UIColor.colorFrom(red: 97, green: 84, blue: 82) // light orangish gray
         }
     }
-    
+
     var darkerBackgroundColor: UIColor {
         switch self {
         case .light:
@@ -48,7 +47,7 @@ enum Theme: Int {
             return UIColor.colorFrom(red: 70, green: 58, blue: 56) // dark orangish gray
         }
     }
-    
+
     var titleTextColor: UIColor {
         switch self {
         case .light:
@@ -57,7 +56,7 @@ enum Theme: Int {
             return UIColor.colorFrom(red: 246, green: 242, blue: 241)
         }
     }
-    
+
     var subtitleTextColor: UIColor {
         switch self {
         case .light:
@@ -66,9 +65,9 @@ enum Theme: Int {
             return UIColor.colorFrom(red: 234, green: 224, blue: 224)
         }
     }
-    
+
     // MARK: - Navigation Bar
-    
+
     var barStyle: UIBarStyle {
         switch self {
         case .light:
@@ -81,6 +80,6 @@ enum Theme: Int {
 
 private extension UIColor {
     static func colorFrom(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
-        return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1.0)
+        return UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: 1.0)
     }
 }

@@ -10,32 +10,32 @@ import UIKit
 
 /// Will hold common accessibility settings with convenience methods for mapping to various elements.
 struct AccessibilityConfiguration {
-    
     /// Will be mapped to the `accessibilityIdentifier` setting on conforming instances.
     let identifier: String?
-    
+
     /// Will be mapped to the `accessibilityLabel` setting on conforming instances.
     let label: String?
-    
+
     /// Will be mapped to the `accessibilityElements` setting on conforming instances.
     let elements: [Any]?
-    
+
     /// Will be mapped to the `accessibilityValue` setting on conforming instances.
     let value: String?
-    
+
     /// Additional context for accessibility label.
     let hint: String?
-    
+
     /// Will be mapped to the 'accessibilityTraits` setting on conforming instances.
     let traits: UIAccessibilityTraits?
-    
+
     init(
         identifier: String?,
         label: String? = nil,
         elements: [Any]? = nil,
         value: String? = nil,
         hint: String? = nil,
-        traits: UIAccessibilityTraits? = nil) {
+        traits: UIAccessibilityTraits? = nil
+    ) {
         self.identifier = identifier
         self.label = label
         self.elements = elements
@@ -43,9 +43,9 @@ struct AccessibilityConfiguration {
         self.hint = hint
         self.traits = traits
     }
-    
+
     // MARK: - Convenience
-    
+
     /// Will map the accessibility configurations to the given view.
     /// Any existing values will be overridden if the configuration setting is not nil.
     ///

@@ -6,14 +6,11 @@
 //  Copyright © 2019 ArinAppy. All rights reserved.
 //
 
-    
 struct CityWeatherMapping: DomainMapping {
-    
     typealias DomainObject = CityWeather?
     typealias DataObject = CityWeatherData
-    
+
     func mapToDomain(_ dataObject: CityWeatherData) -> CityWeather? {
-    
         guard let cityId = dataObject.cityId,
             let cityName = dataObject.cityName,
             let temperature = dataObject.temperature,
@@ -24,7 +21,7 @@ struct CityWeatherMapping: DomainMapping {
         else {
             return nil
         }
-        
+
         return CityWeather(
             cityId: String(cityId), // Integer to String conversion for id
             cityName: cityName,

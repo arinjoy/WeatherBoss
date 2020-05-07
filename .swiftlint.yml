@@ -1,0 +1,49 @@
+excluded:
+  - Carthage
+  - Pods/
+  - WeatherBossTests/
+  
+line_length:
+  - 300 # warning
+  - 400 # error
+
+function_body_length:
+  - 300 # warning
+  - 400 # error
+
+type_body_length:
+  - 300 # warning
+  - 400 # error
+    
+opt_in_rules:
+  - empty_count
+
+# Rules to encourage usage of SwiftGen
+custom_rules:
+    comments_space: # from https://github.com/brandenr/swiftlintconfig
+        name: "Space After Comment"
+        regex: '(^ *//\w+)'
+        message: "There should be a space after //"
+        severity: warning #error
+    comments_capitalized_ignore_possible_code: # from https://github.com/brandenr/swiftlintconfig
+        name: "Capitalize First Word In Comment"
+        regex: '(^ +// +(?!swiftlint)[a-z]+)'
+        message: "The first word of a comment should be capitalized"
+        severity: warning #error
+    comments_capitalized_find_possible_code: # from https://github.com/brandenr/swiftlintconfig
+        name: "Catch Commented Out Code"
+        regex: '(^ *// +(?!swiftlint)[a-z]+)'
+        message: "The first word of a comment should be capitalized"
+        severity: warning
+    empty_line_after_guard: # from https://github.com/brandenr/swiftlintconfig
+        name: "Empty Line After Guard"
+        regex: '(^ *guard[ a-zA-Z0-9=?.\(\),><!]*\{[ a-zA-Z0-9=?.\(\),><!]*\}\n *(?!(?:return|guard))\S+)'
+        message: "There should be an empty line after a guard"
+        severity: warning #error
+    double_space: # from https://github.com/IBM-Swift/Package-Builder
+        include: "*.swift"
+        name: "Double space"
+        regex: '([a-z,A-Z] \s+)'
+        message: "Double space between keywords"
+        match_kinds: keyword
+        severity: warning

@@ -8,13 +8,12 @@
 
 import Foundation
 
-protocol WeatherDetailsDisplay: class {
-    
+protocol WeatherDetailsDisplay: AnyObject {
     /// Will set the view title in navigation bar
     ///
     /// - Parameter title: The title to set
     func setTitle(_ title: String)
-    
+
     /// Will set view details with transformed presentation items
     ///
     /// - Parameter item: The presentation item to set
