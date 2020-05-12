@@ -20,13 +20,13 @@ struct CityWeather {
 
 extension CityWeather {
     init(fromWeatherList info: WeatherList) {
-        self.cityId = String(info.id)
-        self.cityName = info.name
-        self.temperature = info.main.temp
-        self.minTemperature = info.main.tempMin
-        self.maxTemperature = info.main.tempMax
-        self.humidity = info.main.humidity
-        self.windSpeed = info.wind.speed
-        self.shortDescription = info.weather.first?.description
+        cityId = String(info.id)
+        cityName = info.name
+        temperature = info.main.temp
+        minTemperature = info.main.tempMin
+        maxTemperature = info.main.tempMax
+        humidity = info.main.humidity
+        windSpeed = info.wind.speed
+        shortDescription = info.weather.first?.description
     }
 }

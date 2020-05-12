@@ -26,7 +26,7 @@ extension Theme {
         var icon: UIImage {
             guard let image = UIImage(named: rawValue)
             else {
-              fatalError("Image resource \(rawValue) cannot be loaded")
+                fatalError("Image resource \(rawValue) cannot be loaded")
             }
             return image.withRenderingMode(.alwaysTemplate)
         }

@@ -33,10 +33,7 @@
 		FE53B2B3230FB3DE00224258 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2B2230FB3DE00224258 /* Config.swift */; };
 		FE53B2B7230FB73C00224258 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2B6230FB73C00224258 /* WeatherService.swift */; };
 		FE53B2BC230FCB6F00224258 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE53B2AE230FB1A000224258 /* RxSwift.framework */; };
-		FE53B2BF230FE65300224258 /* CityWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2BE230FE65300224258 /* CityWeatherData.swift */; };
-		FE53B2C4230FEF6A00224258 /* DomainMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2C3230FEF6A00224258 /* DomainMapping.swift */; };
 		FE53B2C6230FEFD400224258 /* CityWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2C5230FEFD400224258 /* CityWeather.swift */; };
-		FE53B2C9230FF1F700224258 /* CityWeatherMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2C8230FF1F700224258 /* CityWeatherMapping.swift */; };
 		FE53B2CC230FFA7700224258 /* WeatherFetchingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53B2CB230FFA7700224258 /* WeatherFetchingError.swift */; };
 		FE8A7E702310E4AA003EDA3D /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE8A7E6F2310E4AA003EDA3D /* PKHUD.framework */; };
 		FE8A7E732310ECE6003EDA3D /* WeatherSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8A7E722310ECE6003EDA3D /* WeatherSummaryCell.swift */; };
@@ -90,10 +87,7 @@
 		FE53B2AE230FB1A000224258 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		FE53B2B2230FB3DE00224258 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		FE53B2B6230FB73C00224258 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
-		FE53B2BE230FE65300224258 /* CityWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherData.swift; sourceTree = "<group>"; };
-		FE53B2C3230FEF6A00224258 /* DomainMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainMapping.swift; sourceTree = "<group>"; };
 		FE53B2C5230FEFD400224258 /* CityWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeather.swift; sourceTree = "<group>"; };
-		FE53B2C8230FF1F700224258 /* CityWeatherMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherMapping.swift; sourceTree = "<group>"; };
 		FE53B2CB230FFA7700224258 /* WeatherFetchingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFetchingError.swift; sourceTree = "<group>"; };
 		FE8A7E6F2310E4AA003EDA3D /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		FE8A7E722310ECE6003EDA3D /* WeatherSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSummaryCell.swift; sourceTree = "<group>"; };
@@ -287,20 +281,9 @@
 			children = (
 				AF0E6CDA24657D1D00118E50 /* CityWeatherResult.swift */,
 				FE53B2CA230FFA4100224258 /* Shared */,
-				FE53B2C7230FF17700224258 /* Mapping */,
 				FE53B2C1230FEEF300224258 /* DomainModels */,
-				FE53B2C0230FEEE500224258 /* DataModels */,
-				FE53B2C2230FEF4A00224258 /* Protocol */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		FE53B2C0230FEEE500224258 /* DataModels */ = {
-			isa = PBXGroup;
-			children = (
-				FE53B2BE230FE65300224258 /* CityWeatherData.swift */,
-			);
-			path = DataModels;
 			sourceTree = "<group>";
 		};
 		FE53B2C1230FEEF300224258 /* DomainModels */ = {
@@ -309,22 +292,6 @@
 				FE53B2C5230FEFD400224258 /* CityWeather.swift */,
 			);
 			path = DomainModels;
-			sourceTree = "<group>";
-		};
-		FE53B2C2230FEF4A00224258 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				FE53B2C3230FEF6A00224258 /* DomainMapping.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		FE53B2C7230FF17700224258 /* Mapping */ = {
-			isa = PBXGroup;
-			children = (
-				FE53B2C8230FF1F700224258 /* CityWeatherMapping.swift */,
-			);
-			path = Mapping;
 			sourceTree = "<group>";
 		};
 		FE53B2CA230FFA4100224258 /* Shared */ = {
@@ -562,7 +529,6 @@
 				FE8A7E9A2311F20F003EDA3D /* SettingsDisplay.swift in Sources */,
 				FE8A7E952311EB53003EDA3D /* SettingsCellPresentationItem.swift in Sources */,
 				FE3879BA2310C49E00EEBA6F /* WeatherListPresenter.swift in Sources */,
-				FE53B2C9230FF1F700224258 /* CityWeatherMapping.swift in Sources */,
 				FE8A7E9223113327003EDA3D /* WeatherDetailsTransformer.swift in Sources */,
 				FE8A7EA423128661003EDA3D /* Theme+Icon.swift in Sources */,
 				FE8A7E9C2311F2C8003EDA3D /* SettingsPresenter.swift in Sources */,
@@ -583,7 +549,6 @@
 				FE8A7E982311EC1E003EDA3D /* SettingsCell.swift in Sources */,
 				FE53B2CC230FFA7700224258 /* WeatherFetchingError.swift in Sources */,
 				FE3879C02310CA2700EEBA6F /* WeatherListTransformer.swift in Sources */,
-				FE53B2BF230FE65300224258 /* CityWeatherData.swift in Sources */,
 				FE3879B22310B76300EEBA6F /* DataSection.swift in Sources */,
 				FE8A7E8C23112E30003EDA3D /* WeatherDetailsPresenter.swift in Sources */,
 				FE8A7E8A23112DD5003EDA3D /* WeatherDetailsDisplay.swift in Sources */,
@@ -592,7 +557,6 @@
 				AF8C316324583AF30024FA8E /* ReusableView.swift in Sources */,
 				FE8A7E9F23120D0A003EDA3D /* ThemeManager.swift in Sources */,
 				FE8A7E732310ECE6003EDA3D /* WeatherSummaryCell.swift in Sources */,
-				FE53B2C4230FEF6A00224258 /* DomainMapping.swift in Sources */,
 				FE226A89230F494600DA538E /* WeatherListViewController.swift in Sources */,
 				FE8A7E8523111F98003EDA3D /* WeatherListRouter.swift in Sources */,
 			);
