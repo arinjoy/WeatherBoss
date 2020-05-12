@@ -1,22 +1,27 @@
 excluded:
-  - Carthage
-  - Pods/
-  - WeatherBossTests/
-  
+    - Carthage
+    - Pods/
+    - WeatherBossTests/
+
+identifier_name:
+    excluded: # excluded via string array
+        - id
+        - dt
+
 line_length:
-  - 300 # warning
-  - 400 # error
+    - 300 # warning
+    - 400 # error
 
 function_body_length:
-  - 300 # warning
-  - 400 # error
+    - 300 # warning
+    - 400 # error
 
 type_body_length:
-  - 300 # warning
-  - 400 # error
-    
+    - 300 # warning
+    - 400 # error
+
 opt_in_rules:
-  - empty_count
+    - empty_count
 
 # Rules to encourage usage of SwiftGen
 custom_rules:

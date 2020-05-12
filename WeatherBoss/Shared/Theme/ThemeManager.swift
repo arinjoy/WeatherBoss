@@ -17,7 +17,7 @@ final class ThemeManager {
 
     static func currentAppTheme() -> Theme {
         guard let storedAppThemeId = (UserDefaults.standard.value(forKey: AppThemeKey) as AnyObject).integerValue,
-           let currentTheme = Theme(rawValue: storedAppThemeId)
+            let currentTheme = Theme(rawValue: storedAppThemeId)
         else {
             return .light
         }
