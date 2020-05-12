@@ -7,7 +7,6 @@
 //
 
 import Alamofire
-import ObjectMapper
 import RxSwift
 
 /// Weather Service reponsible for fething weather data
@@ -20,36 +19,33 @@ final class WeatherService {
     }
 
     /// Fetches weather for cities and reponds via Observable
+
     func getCurrentWeather(forCities cityIds: [String]) -> Observable<[CityWeather]> {
-        return Observable.create { [weak self] observer -> Disposable in
-            self?.apiClient.fetchWeatherForCitiesRequest(forCityIds: cityIds)
-            .validate()
-            .responseJSON { response in
-                switch response.result {
-                case .success:
-
-                    guard let responseJSON = response.result.value as? [String: AnyObject],
-                        let weatherListJSONArray = responseJSON["list"] as? [[String: AnyObject]]
-                    else {
-                        observer.onError(WeatherFetchingError.dataConversion)
-                        return
-                    }
-
-                    let weatherList: [CityWeather] = Mapper<CityWeatherData>()
-                        .mapArray(JSONArray: weatherListJSONArray)
-                        .compactMap(CityWeatherMapping().mapToDomain)
-
-                    observer.onNext(weatherList)
-
-                case let .failure(error):
-                    if let statusCode = response.response?.statusCode,
-                        let expectedServerError = WeatherFetchingError(rawValue: statusCode) {
-                        observer.onError(expectedServerError)
-                    } else {
-                        observer.onError(error)
-                    }
-                }
+        return request(forCities: cityIds)
+            .map { data -> [CityWeather] in
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let result = try decoder.decode(CityWeatherResult.self, from: data)
+                let cityWeather = result.list.map { CityWeather(fromWeatherList: $0) }
+                return cityWeather
             }
+            .retry(2)
+            .asObservable()
+    }
+
+    private func request(forCities cityIds: [String]) -> Observable<Data> {
+        return Observable<Data>.create { [weak self] observer in
+            self?.apiClient.fetchWeatherForCitiesRequest(forCityIds: cityIds)
+                .validate()
+                .responseData(completionHandler: { response in
+                    switch response.result {
+                    case let .success(value):
+                        observer.on(.next(value))
+                        observer.on(.completed)
+                    case let .failure(error):
+                        observer.on(.error(error))
+                    }
+                })
             return Disposables.create()
         }
     }

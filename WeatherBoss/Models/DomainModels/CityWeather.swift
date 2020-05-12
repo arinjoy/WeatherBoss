@@ -15,6 +15,18 @@ struct CityWeather {
     let maxTemperature: Double
     let humidity: Double
     let windSpeed: Double
-
     let shortDescription: String?
+}
+
+extension CityWeather {
+    init(fromWeatherList info: WeatherList) {
+        self.cityId = String(info.id)
+        self.cityName = info.name
+        self.temperature = info.main.temp
+        self.minTemperature = info.main.tempMin
+        self.maxTemperature = info.main.tempMax
+        self.humidity = info.main.humidity
+        self.windSpeed = info.wind.speed
+        self.shortDescription = info.weather.first?.description
+    }
 }
